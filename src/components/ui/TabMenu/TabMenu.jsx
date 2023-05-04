@@ -1,18 +1,19 @@
 import React from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-
-import { menuItemList } from './menuItemList';
+import 'react-tabs/style/react-tabs.css';
 
 export const TabMenu = () => {
-  
   return (
     <Tabs>
       <TabList>
-        {menuItemList.map(({id, tabName}) => (
-          <Tab key={id}>
-            {tabName}
+
+          <Tab>
+            {'HTML'}
           </Tab>
-        ))}
+          <Tab>
+            {'CSS'}
+          </Tab>
+        
       </TabList>
 
       <TabPanel>

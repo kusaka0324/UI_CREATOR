@@ -1,19 +1,26 @@
 import React from 'react';
-import { MainLayout } from '../../../components/layouts';
-import { ColorPalette } from '../../colorPalette';
-import { CodeEditor, EditorFrame } from '../../codeEditor';
-import { SelectAreaLayout, SelectItem, SelectItemList } from '../../propertySelect';
+import { MainLayout }   from '@/components/layouts';
+import { ScreenLayout } from '@/features/screen';
+import { ColorPalette } from '@/features/colorPalette';
+import { CodeEditor, EditorFrame } from '@/features/codeEditor';
+import { SelectAreaLayout, SelectItem, SelectItemList } from '@/features/propertySelect';
 
 export const SetBackground = () => {
   return (
     <MainLayout>
-      <div style={{display:'flex',flexDirection:'column'}}>
-        <ColorPalette/>
+      {/*あとで修正 */}
+      <div style={{display:'flex', flexDirection: 'column'}} >
+        <div style={{display:'flex', alignItems: 'center'}}>
+          <ScreenLayout className={'background'}>
+            
+          </ScreenLayout>
+          <ColorPalette/>
+        </div>
         <div style={{display:'flex'}}>
           <EditorFrame>
             <CodeEditor/>
           </EditorFrame> 
-          <SelectAreaLayout areaTitle={'CSS Properties'} >
+          <SelectAreaLayout areaTitle={'CSS Properties'} className={'background'} >
             <SelectItemList>
               <SelectItem property={'width'}/>
             </SelectItemList>

@@ -1,9 +1,12 @@
-import React from 'react'
+import React  from 'react'
+import styles from './screenLayout.module.css';
 
-export const ScreenLayout = () => {
+export const ScreenLayout = ({className, children}) => {
   return (
-    <div>
-      
+    <div className={styles[`screen-style--${className}`] } >
+      <div className={styles[`content--${className}`]} >
+        {children}
+      </div>
     </div>
   )
 }
