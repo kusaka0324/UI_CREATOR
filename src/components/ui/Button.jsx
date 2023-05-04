@@ -1,5 +1,4 @@
 import React  from 'react';
-import styles from './button.module.css';
 
 export const Button = (
   {
@@ -13,7 +12,7 @@ export const Button = (
 ) => {
   return (
     <button 
-      className={styles}
+      
       {...props}
     >
       <span>{startIcon}</span>
