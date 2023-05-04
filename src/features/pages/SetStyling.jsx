@@ -2,10 +2,10 @@ import React from 'react';
 import { MainLayout }   from '@/components/layouts';
 import { ScreenLayout } from '@/features/screen';
 import { ColorPalette } from '@/features/colorPalette';
-import { CodeEditor, EditorFrame } from '@/features/codeEditor';
+import { CodeEditor, EditorLayout } from '@/features/codeEditor';
 import { SelectAreaLayout, SelectItem, SelectItemList } from '@/features/propertySelect';
 
-export const SetBackground = () => {
+export const SetStyling = () => {
   return (
     <MainLayout>
       {/*あとで修正 */}
@@ -17,10 +17,10 @@ export const SetBackground = () => {
           <ColorPalette/>
         </div>
         <div style={{display:'flex'}}>
-          <EditorFrame>
+          <EditorLayout>
             <CodeEditor/>
-          </EditorFrame> 
-          <SelectAreaLayout areaTitle={'CSS Properties'} className={'background'} >
+          </EditorLayout> 
+          <SelectAreaLayout areaTitle={'CSS Properties'} >
             <SelectItemList>
               <SelectItem property={'width'}/>
             </SelectItemList>
@@ -30,5 +30,3 @@ export const SetBackground = () => {
     </MainLayout>
   )
 }
-
-

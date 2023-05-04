@@ -7,25 +7,25 @@ export const menuList = [
   {
     id: 1,
     itemName : 'Background',
-    icon     : WallpaperIcon,
+    Icon     : WallpaperIcon,
     routePath: '/',
   },
   {
     id: 2,
     itemName : 'Display',
-    icon     : SpaceDashboardIcon,
+    Icon     : SpaceDashboardIcon,
     routePath: '/display',
   },
   {
     id: 3,
     itemName : 'Styling',
-    icon     : BorderColorIcon,
+    Icon     : BorderColorIcon,
     routePath: '/styling',
   },
   {
     id: 4,
     itemName : 'Set Custom', 
-    icon     : SettingsIcon,
+    Icon     : SettingsIcon,
     routePath: '/set_custom',
   },
 ];
