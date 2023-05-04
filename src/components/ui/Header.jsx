@@ -3,8 +3,8 @@ import styles from './header.module.css';
 
 export const Header = ({ title, accentTitle }) => {
   return (
-    <header>
-      <div className={styles[`system-title`]} >
+    <header className='relative h-80 w-full bg-'>
+      <div className=''>
         {title}
         <span className={styles[`title-accent`]} >
           {accentTitle}
