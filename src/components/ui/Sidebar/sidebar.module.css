@@ -32,20 +32,20 @@
   margin          : 10px;
   height          : 77px;
   width           : 75px;
-  color           : #0A4BFE;
+  color           : #2962FF;
   background-color: #C9E8FF;
-  border          : 3px solid #0A4BFE ;
+  border          : 3px solid #2962FF;
   border-radius   : 50%;
 }
 
 .sidebar ul li a:hover {
-  color: #0A4BFE;
+  color: #2962FF;
   background-color: #e3f2fd;
   transition:0.5s;
 }
 
 .list-active {
   color: #C9E8FF;
-  background-color: #0A4BFE;
+  background-color: #2962FF;
   transition: 0.45s;
 }
