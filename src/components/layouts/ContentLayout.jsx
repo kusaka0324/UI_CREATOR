@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const ContentLayout = () => {
+export const ContentLayout = ({children}) => {
   return (
     <div>
-      
+      {children}
     </div>
   )
 }
