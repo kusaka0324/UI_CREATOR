@@ -16,18 +16,18 @@ export const Header = ({ title, accentTitle }) => {
 
 
 const HeaderStyle =styled.header`
-  position: relative;
-  height  : 80px;
-  width   : 100%;
-  background-color: #fefefe;
+  position  : relative;
+  height    : 80px;
+  width     : 100%;
+  background: #fefefe;
   box-shadow: 3px 3px 3px 1.5px rgb(199, 199, 199);
 `;
 
 const HeaderTitle = styled.div`
-  position : absolute;
-  top      : 50%;
-  left     : 50px;
-  transform: translateY(-50%);
+  position   : absolute;
+  top        : 50%;
+  left       : 50px;
+  transform  : translateY(-50%);
   line-height: 32px;
   font-size  : 32px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

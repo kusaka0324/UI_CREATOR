@@ -1,40 +1,39 @@
 import React  from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { menuList } from './menuList';
 
-export const Sidebar = () => {
+export const Sidebar = ({menuList}) => {
   return (
     <Navigation>
       <ul>
         {menuList.map((
           {
-            id,
-            itemName,
-            Icon,
+            id, 
+            itemName, 
+            Icon, 
             routePath
           }
         ) => (
           <li key={id}>
-            <NavLink to={routePath} >
-              <Icon/>
+            <NavLink to={routePath}>
+              <Icon />
             </NavLink>
-            <span>{itemName}</span>            
+            <span>{itemName}</span>
           </li>
         ))}
       </ul>
     </Navigation>
   );
-};
+}
 
 
 const Navigation = styled.nav`
-  margin          : 30px 0px 0px 30px;
-  width           : 120px;
-  height          : 650px;
-  background-color: #2B2B2B;
-  border-radius   : 20px;
-  opacity         : 0.8;
+  margin       : 30px 0px 0px 30px;
+  width        : 120px;
+  height       : 650px;
+  background   : #2B2B2B;
+  border-radius: 20px;
+  opacity      : 0.8;
 
   > ul {
     list-style : none;
@@ -53,21 +52,21 @@ const Navigation = styled.nav`
       text-decoration: none;
   
       > a {
-        display         : flex;
-        justify-content : center;
-        align-items     : center;
-        margin          : 10px;
-        height          : 77px;
-        width           : 75px;
-        color           : #2962FF;
-        background-color: #C9E8FF;
-        border          : 3px solid #2962FF;
-        border-radius   : 50%;
+        display        : flex;
+        justify-content: center;
+        align-items    : center;
+        margin         : 10px;
+        height         : 77px;
+        width          : 75px;
+        color          : #2962FF;
+        background     : #C9E8FF;
+        border         : 3px solid #2962FF;
+        border-radius  : 50%;
       
         &:hover {
-          color: #2962FF;
+          color     : #2962FF;
           background: #e0f1ff;
-          transition:0.5s;
+          transition: 0.5s;
         }
       }
     }

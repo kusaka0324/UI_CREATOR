@@ -1,2 +1,2 @@
 export * from './codeEditor';
-export * from './editorLayout';
+export * from './EditorLayout';
