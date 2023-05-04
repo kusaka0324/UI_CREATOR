@@ -5,7 +5,7 @@ import {
   SetDisplay,
   SetStyling,
   SetCustom, 
-} from "./components/pages";
+} from "./features/pages";
 
 export default function Router(){
   return (
