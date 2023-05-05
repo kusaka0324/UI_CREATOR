@@ -2,7 +2,9 @@ import React  from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const Sidebar = ({menuList}) => {
+import { menuList } from './menuList';
+
+export const Sidebar = () => {
   return (
     <Navigation>
       <ul>
