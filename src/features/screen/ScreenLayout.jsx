@@ -17,11 +17,11 @@ const ScreenStyle = styled.div`
   background   : #4C4B4B;
   border-radius: 30px;
 
-  height: ${({ setBackground, setStyling }) =>
-    setBackground || setStyling ? '400px' : '500px'
+  height: ${({className}) =>
+    className === 'setBackground' || 'setStyling' ? '350px' : '500px'
   };
-  width: ${({ setBackground, setStyling }) =>
-    setBackground || setStyling ? '800px' : '1000px'
+  width: ${({className}) =>
+    className === 'setBackground' || 'setStyling' ? '700px' : '1000px'
   };
 `;
 
@@ -34,10 +34,10 @@ const ScreenContent = styled.div`
   border-radius: 30px;
   transform    : translate(-50%, -50%);
 
-  height: ${({ setBackground, setStyling }) =>
-    setBackground || setStyling ? '354px' : '443px'
+  height: ${({className}) =>
+    className === 'setBackground' || 'setStyling' ? '310px' : '440px'
   };
-  width: ${({ setBackground, setStyling }) =>
-    setBackground || setStyling ? '754px' : '942px'
+  width: ${({className}) =>
+    className === 'setBackground' || 'setStyling'? '640px' : '940px'
   };
 `;

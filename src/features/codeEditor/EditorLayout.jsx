@@ -1,6 +1,8 @@
-import React  from 'react';
-import { TabMenu } from '../../components/ui';
+import React  from 'react';     
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 import styled from 'styled-components';
+import { CodeByHTML, CodeByCSS } from './CodeEdit';
 
 export const EditorLayout = (props) => {
   const { children } = props;
@@ -8,7 +10,18 @@ export const EditorLayout = (props) => {
   return (
     <EditLayoutStyle>
       <EditorHead >
-        <TabMenu/>
+        <Tabs>
+          <TabList>
+            <Tab>{'HTML'}</Tab>
+            <Tab>{'CSS' }</Tab>
+          </TabList>
+          <TabPanel>
+            <CodeByHTML/>
+          </TabPanel>
+          <TabPanel>
+            <CodeByCSS/>
+          </TabPanel>
+        </Tabs>
       </EditorHead>
       <EditArea>
         {children}  

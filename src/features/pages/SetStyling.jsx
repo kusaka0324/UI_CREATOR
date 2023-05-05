@@ -2,7 +2,7 @@ import React from 'react';
 import { MainLayout }   from '@/components/layouts';
 import { ScreenLayout } from '@/features/screen';
 import { ColorPalette } from '@/features/colorPalette';
-import { CodeEditor, EditorLayout } from '@/features/codeEditor';
+import { EditorLayout } from '@/features/codeEditor';
 import { SelectAreaLayout, SelectItem, SelectItemList } from '@/features/propertySelect';
 
 export const SetStyling = () => {
@@ -18,7 +18,7 @@ export const SetStyling = () => {
         </div>
         <div style={{display:'flex'}}>
           <EditorLayout>
-            <CodeEditor/>
+            
           </EditorLayout> 
           <SelectAreaLayout areaTitle={'CSS Properties'} >
             <SelectItemList>

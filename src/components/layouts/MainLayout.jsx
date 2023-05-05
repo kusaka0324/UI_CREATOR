@@ -1,6 +1,5 @@
 import React from 'react'
 import { Header, Sidebar } from '../ui';
-import { menuList } from './menuList';
 import styled from 'styled-components';
 
 export const MainLayout = ({ children }) => {
@@ -8,8 +7,10 @@ export const MainLayout = ({ children }) => {
     <MainLayoutStyle>
       <Header title={'UI'} accentTitle={'CREATER'} />
       <main>
-        <Sidebar menuList={menuList} />
-        {children}
+        <Sidebar />
+        <div>
+          {children}
+        </div>
       </main>
     </MainLayoutStyle>
   )

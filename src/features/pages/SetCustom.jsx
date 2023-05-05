@@ -10,7 +10,7 @@ export const SetCustom= () => {
   return (
     <MainLayout>
       <div>
-        <ScreenLayout className={'set-custom'}>
+        <ScreenLayout className={'SetCustom'}>
 
         </ScreenLayout>
         <Button icon={<SettingsIcon />}>
