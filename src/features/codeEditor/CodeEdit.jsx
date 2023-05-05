@@ -1,28 +1,27 @@
 import React, { useState } from 'react';
 import CodeMirror from '@uiw/react-codemirror';
+import { vscodeDark } from '@uiw/codemirror-theme-vscode';
+import { html } from '@codemirror/lang-html';
+import { css }  from '@codemirror/lang-css';
+import { useRecoilState } from 'recoil';
+import { EditByHtmlAtom, EditByCssAtom } from '@/recoil/atoms';
 
 export const CodeByHTML = () => {    
-  const [ htmlCode, setHtmlCode ] = useState('');
+  const [ htmlCode, setHtmlCode ] = useRecoilState(EditByHtmlAtom);
   const handleChange = (editor, data, value) => {
     setHtmlCode(value);
   };
-
   return (
 		<CodeMirror
 			value={htmlCode}
-      
-			options={{
-        lineNumbers :true,
-        lineWrapping: true,
-        theme: 'material',
-        mode: 'html',
-      }}
+      theme={vscodeDark}
+      extensions={html()}
     />
-  )
+  );
 }
 
 export const CodeByCSS = () => {
-  const [ cssCode, setCssCode ] = useState('');
+  const [ cssCode, setCssCode ] = useRecoilState(EditByCssAtom);
   const handleChange = (editor, data, value) => {
     setCssCode(value);
   };
@@ -30,13 +29,8 @@ export const CodeByCSS = () => {
   return (
 		<CodeMirror
 			value={cssCode}
-      
-      options={{
-        lineNumbers :true,
-        lineWrapping: true,
-        theme: 'material',
-        mode: 'css',
-      }}
+      theme={vscodeDark}
+      extensions={css()}
     />
   )
 }
