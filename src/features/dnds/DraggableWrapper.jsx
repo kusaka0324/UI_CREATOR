@@ -2,8 +2,9 @@ import React from 'react';
 import { useDrag } from 'react-dnd';
 
 import { ItemTypes } from './ItemTypes';
+import { SelectItem } from '../propertySelect';
 
-export const DraggableItem = ({ id, itemName, children }) => {
+export const DraggableWrapper = ({ id, itemName, children }) => {
   const [{ isDragging }, drag] = useDrag({
     type: ItemTypes.BOX,
     item: { 
@@ -18,13 +19,12 @@ export const DraggableItem = ({ id, itemName, children }) => {
     },
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),
-      handlerId : monitor.getHandlerId(),
     }),
   });
 
   return (
     <div ref={drag} >
-      {children}
+      { children }
     </div>
   );
 };
