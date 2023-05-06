@@ -13,7 +13,8 @@ export const PreviewLayout = ({children}) => {
 
 const PreviewGridItem= styled.div`
   grid-row   : 2;
-  grid-column: 1;
+  grid-column: 2;
+  background : #fefefe;
 `;
 
 const PreviewContainer= styled.div`

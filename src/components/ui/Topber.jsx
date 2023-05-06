@@ -16,11 +16,11 @@ export const Topber = ({ title, accentTitle }) => {
 
 
 const HeaderStyle =styled.header`
+  grid-row   : 1;
+  grid-column: 1 / span 2;
   position  : relative;
   height    : 5.75rem;
-  width     : 100%;
-  background: #fefefe;
-  box-shadow: 3px 3px 3px 1.5px rgb(199, 199, 199);
+  background: #1c1c1c;
 `;
 
 const HeaderTitle = styled.div`
@@ -29,11 +29,13 @@ const HeaderTitle = styled.div`
   left       : 4.75rem;
   transform  : translateY(-50%);
   line-height: 3.25rem;
+  color: #251be8;
   font-size  : 3.25rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bold;
   
   > span {
+    color:white;
     padding-left: 0.25rem;
     font-size   : 2rem;
   }
