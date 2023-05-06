@@ -13,20 +13,21 @@ export const ScreenLayout = ({className, children}) => {
 
 
 const ScreenStyle = styled.div`
+  margin       : 1.25rem;
   position     : relative;
   background   : #4C4B4B;
   border-radius: 30px;
 
   height: ${({className}) =>
-    className === 'setBackground' || 'setStyling' ? '350px' : '500px'
+    className === 'setBackground' || 'setStyling' ? '21.875rem' : '31.25rem'
   };
   width: ${({className}) =>
-    className === 'setBackground' || 'setStyling' ? '700px' : '1000px'
+    className === 'setBackground' || 'setStyling' ? '43.75rem' : '62.5rem'
   };
 `;
 
 const ScreenContent = styled.div`
-  padding      : 10px;
+  padding      : 0.625rem;
   position     : absolute;
   top          : 50%;
   left         : 50%;
@@ -35,9 +36,9 @@ const ScreenContent = styled.div`
   transform    : translate(-50%, -50%);
 
   height: ${({className}) =>
-    className === 'setBackground' || 'setStyling' ? '310px' : '440px'
+    className === 'setBackground' || 'setStyling' ? '19.375rem' : '27.5rem'
   };
   width: ${({className}) =>
-    className === 'setBackground' || 'setStyling'? '640px' : '940px'
+    className === 'setBackground' || 'setStyling'? '40rem' : '58.75rem'
   };
 `;

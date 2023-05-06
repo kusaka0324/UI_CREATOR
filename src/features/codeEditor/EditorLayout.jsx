@@ -2,39 +2,42 @@ import React  from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import styled from 'styled-components';
-import { CodeByHTML, CodeByCSS } from './CodeEdit';
+import { EditHtml, EditCss } from './editcode';
 
 export const EditorLayout = (props) => {
   const { children } = props;
 
   return (
     <EditLayoutStyle>
+      <Tabs>
       <EditorHead >
-        <Tabs>
+        
           <TabList>
             <Tab>{'HTML'}</Tab>
             <Tab>{'CSS' }</Tab>
           </TabList>
-          <TabPanel>
-            <CodeByHTML/>
-          </TabPanel>
-          <TabPanel>
-            <CodeByCSS/>
-          </TabPanel>
-        </Tabs>
+        
       </EditorHead>
-      <EditArea>
-        {children}  
+      <EditArea> 
+        <TabPanel>
+            <EditHtml/>
+          </TabPanel>
+          <TabPanel>
+            <EditCss/>
+          </TabPanel>
+        
       </EditArea>
+      </Tabs>
     </EditLayoutStyle>
   );
 };
 
 const EditLayoutStyle= styled.div`
-    height : 340px;
-    width  : 560px;
-    border-radius   : 20px 0px 0px 20px;
-    background-color: #1C1C1C;
+    margin-left: 1.25rem;
+    height     : calc(100vh - 8rem);
+    width      : calc(100vh - 8rem);
+    background : #1c1c1c;
+    overflow   : auto;
 `;
 
 const EditorHead= styled.div`
@@ -42,9 +45,9 @@ const EditorHead= styled.div`
 `; 
 
 const EditArea= styled.div`
-  padding: 5px 0px 20px 0px;
-  height: 270px;
-  width : 560px;
-  background-color: #0D0E10;
+  padding      : 0.125rem 0 1.25rem 0;
+  height       : 100%;
+  width        : 100%;
+  background   : #0D0E10;
 `;
 

@@ -17,24 +17,24 @@ const SelectItemBox= styled.div`
   display        : flex;
   align-items    : center;
   justify-content: center;
-  height         : 60px;
-  width          : 180px;
+  height         : 3.75rem;
+  width          : 11.25rem;
   background     : #7E7E7E;
   border-radius  : 20px;
 `;
 
 const ItemFontStyle= styled.div`
   color    : #fefefe;
-  font-size: 20px;
+  font-size: 1.25rem;
 `;
 
 const InputField= styled.input`
-  height    : 28px;
-  width     : 36px;
-  text-align: center;
-  border    : none;
-  outline   : none;
-  background: #D9D9D9;
+  height       : 1.75rem;
+  width        : 2.25rem;
+  text-align   : center;
+  border       : none;
+  outline      : none;
+  background   : #D9D9D9;
   border-radius: 5px;
 `; 
 
