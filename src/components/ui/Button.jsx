@@ -13,9 +13,9 @@ export const Button = ({ icon, children, ...props }) => {
 }
 
 const IconStyle= styled.svg`
-  margin: 10px;  
-  width : 40px;
-  height: 40px;
+  margin: 0.625rem;  
+  width : 2.5rem;
+  height: 2.5rem;
   color : #2962FF;
 `;
 
@@ -23,10 +23,10 @@ const ButtonStyle= styled.button`
   display        : flex;
   justify-content: center;
   align-items    : center;
-  height         : 100px;
-  width          : 300px;
+  height         : 4.75rem;
+  width          : 15rem;
   color          : #2962FF;
-  font-size      : 32px;
+  font-size      : 1.5rem;
   font-weight    : 600;
   font-family    : 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background     : #EEF8FF;
