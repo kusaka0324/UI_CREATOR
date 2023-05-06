@@ -1,25 +1,20 @@
 import React from 'react'
-import { Header, Sidebar } from '../ui';
 import styled from 'styled-components';
 
 export const MainLayout = ({ children }) => {
   return (
-    <MainLayoutStyle>
-      <Header title={'UI'} accentTitle={'CREATER'} />
-      <main>
-        <Sidebar />
-        <div>
-          {children}
-        </div>
-      </main>
-    </MainLayoutStyle>
-  )
-}
+    <GridLayout>
+      {children}
+    </GridLayout>
+  );
+};
 
-const MainLayoutStyle= styled.div`
-  height: 100%;
-  width : 100%;
-  > main {
-    display: flex;
-  };
+const GridLayout= styled.div`
+  display    : grid;
+  margin     : 0;
+  min-height : 100vh;
+  min-width  : 100vw;
+  grid-template-rows   : 5.75rem 1fr;
+  grid-template-columns: 1fr 1fr;
 `;
+
