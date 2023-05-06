@@ -1,4 +1,3 @@
-export * from './Header';
-export * from './Sidebar/Sidebar';
+export * from './Topber';
 export * from './Button';
-export * from './TabMenu';
+export * from './IconButton';

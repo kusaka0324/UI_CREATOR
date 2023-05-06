@@ -1,4 +1,2 @@
-export * from './SetBackground';
-export * from './SetDisplay';
-export * from './SetStyling';
-export * from './SetCustom';
+export * from './MainPage';
+export * from './WebviewControllerPage';
