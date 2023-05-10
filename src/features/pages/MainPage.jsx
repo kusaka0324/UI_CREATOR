@@ -1,14 +1,15 @@
 import React from 'react';
 import { MainLayout, ContentLayout } from '@/components/layouts';
 import { ScreenLayout }  from '@/features/screen';
-import { EditorLayout }  from '@/features/codeEditor';
+import { CodeEditor }  from '@/features/codeEditor';
 import { PreviewLayout } from '@/components/layouts/PreviewLayout';
 import { IconButton, Topber } from '@/components/ui';
-import { SelectAreaLayout } from '../propertySelect';
 import styled from 'styled-components';
 import CodeIcon     from '@mui/icons-material/Code';
 import GridViewIcon from '@mui/icons-material/GridView';
 import SettingsIcon from '@mui/icons-material/Settings';
+import { SelectControllers } from '../controllers/SelectControllers';
+import { SelectCssProps } from '../properties';
 
 export const MainPage = () => {
   const [activeContent, setActiveContent] = React.useState('codeEditor');
@@ -43,13 +44,17 @@ export const MainPage = () => {
           </NavList>
         </Navigation>
       { activeContent === 'codeEditor' && (
-          <EditorLayout></EditorLayout>
+        <>
+          <CodeEditor />
+          {/* <SelectCssProps />         */}
+        </>
+
         )
       }
       { activeContent === 'displayButtons' && (
-          <SelectAreaLayout>
-            
-          </SelectAreaLayout>
+        <div style={{flexDirection:'column'}}>
+          <SelectControllers/>
+        </div>
         )
       }
       </ContentLayout>        
