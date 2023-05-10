@@ -1,7 +1,6 @@
 import React  from 'react';     
 import styled, { css } from 'styled-components';
-import { EditCss } from './editcode/editCss';
-import { EditHtml } from './editcode/editHtml';
+// import { EditHtml } from './editcode';
 
 export const CodeEditor = () => {
   const [activeTab, setActiveTab] = React.useState('html');
@@ -21,8 +20,8 @@ export const CodeEditor = () => {
       </EditorHead>
       <EditArea> 
         <TabPanel >
-          {activeTab === 'html' && <EditHtml/>}
-          {activeTab === 'css' && <EditCss/>}
+          {/* {activeTab === 'html' && <EditHtml/>}
+          {activeTab === 'css' && <EditCss/>} */}
         </TabPanel>
       </EditArea>
       </Tabs>
