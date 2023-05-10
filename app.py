@@ -1,5 +1,5 @@
 from flask import Flask, Response, render_template, request
-
+#
 app = Flask(__name__)
 
 status = [{"button" + str(j): False for j in range(5)} for i in range(5)]
