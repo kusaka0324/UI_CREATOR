@@ -1,6 +1,7 @@
 import React  from 'react';     
 import styled, { css } from 'styled-components';
-import { EditHtml, EditCss } from './editcode';
+import { EditCss } from './editcode/editCss';
+import { EditHtml } from './editcode/editHtml';
 
 export const CodeEditor = () => {
   const [activeTab, setActiveTab] = React.useState('html');
