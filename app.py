@@ -1,3 +1,4 @@
+from bs4 import BeautifulSoup
 from flask import Flask, Response, render_template, request
 
 app = Flask(__name__)
@@ -11,10 +12,22 @@ def Controller():
         return render_template("controller" + request.args.get("controller") + ".html")
     if request.method == "POST":
         data = request.json
-        with open("controller" + data["controller"] + ".html", "wb") as file:
-            file.write(data["html"])
+
+        with open("template.html", "rb") as file:
+            html = file.read()
+        soup = BeautifulSoup(html, "html.parser")
+        soup.title = "Controller" + data["controller"]
+        htmlBody = ""
+        for i in range(len(data["button"])):
+            htmlBody += "<button type='button' id='button" + \
+                data["button"][i] + "'></button>"
+        soup.body.append(htmlBody)
+        with open("controller" + data["controller"] + ".html", "rb") as file:
+            file.write(soup.prettify())
+
         with open("controller" + data["controller"] + ".css", "wb") as file:
             file.write(data["css"])
+
         return Response(status=204)
 
 
