@@ -18,9 +18,11 @@ def Controller():
         soup = BeautifulSoup(html, "html.parser")
         soup.title = "Controller" + data["controller"]
         htmlBody = ""
+        button = ["leftForward", "rightForward", "leftReverse",
+                  "rightReverse", "speedBoost", "rightTurn", "leftTurn"]
         for i in range(len(data["button"])):
-            htmlBody += "<button type='button' id='button" + \
-                data["button"][i] + "'></button>"
+            htmlBody += "<button type='button' id='" + \
+                button[data["button"][i]] + "Button'></button>"
         soup.body.append(htmlBody)
         with open("controller" + data["controller"] + ".html", "rb") as file:
             file.write(soup.prettify())
