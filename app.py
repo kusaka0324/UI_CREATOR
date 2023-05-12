@@ -12,7 +12,6 @@ def Controller():
         return render_template("controller" + request.args.get("controller") + ".html")
     if request.method == "POST":
         data = request.json
-
         with open("template.html", "rb") as file:
             html = file.read()
         soup = BeautifulSoup(html, "html.parser")
@@ -26,10 +25,8 @@ def Controller():
         soup.body.append(htmlBody)
         with open("controller" + data["controller"] + ".html", "rb") as file:
             file.write(soup.prettify())
-
         with open("controller" + data["controller"] + ".css", "wb") as file:
             file.write(data["css"])
-
         return Response(status=204)
 
 
