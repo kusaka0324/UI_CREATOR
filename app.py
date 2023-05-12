@@ -17,7 +17,7 @@ def Controller():
         soup = BeautifulSoup(html, "html.parser")
         soup.title = "Controller" + data["controller"]
         htmlBody = ""
-        button = ["leftForward", "rightForward", "leftReverse",
+        button = ["leftForward", "leftReverse", "rightForward",
                   "rightReverse", "speedBoost", "rightTurn", "leftTurn"]
         for i in range(len(data["button"])):
             htmlBody += "<button type='button' id='" + \

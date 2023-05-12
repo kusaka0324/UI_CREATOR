@@ -3,8 +3,8 @@ const controller = document.title.slice(-1);
 
 button = [
   "leftForward",
-  "rightForward",
   "leftReverse",
+  "rightForward",
   "rightReverse",
   "speedBoost",
   "rightTurn",
