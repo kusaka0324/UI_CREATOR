@@ -1,12 +1,13 @@
 from bs4 import BeautifulSoup
-from flask import Flask, Response, render_template, request
+from flask import Blueprint, Flask, Response, render_template, request
 
 app = Flask(__name__)
+blueprint = Blueprint("controller", __name__, url_prefix="/controller")
 
 status = [{"button" + str(j): False for j in range(5)} for i in range(5)]
 
 
-@app.route("/controller", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST"])
 def Controller():
     if request.method == "GET":
         return render_template("controller" + request.args.get("controller") + ".html")
@@ -41,6 +42,7 @@ def ChangeStatus():
 def ReturnStatus():
     return status[int(request.args.get("controller"))]
 
+app.register_blueprint(blueprint)
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=8080, debug=True)
