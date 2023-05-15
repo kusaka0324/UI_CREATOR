@@ -7,7 +7,7 @@ blueprint = Blueprint("controller", __name__, url_prefix="/controller")
 status = [{"button" + str(j): False for j in range(5)} for i in range(5)]
 
 
-@app.route("/", methods=["GET", "POST"])
+@blueprint.route("/", methods=["GET", "POST"])
 def Controller():
     if request.method == "GET":
         return render_template("controller" + request.args.get("controller") + ".html")
@@ -31,14 +31,14 @@ def Controller():
         return Response(status=204)
 
 
-@app.route("/change-status", methods=["GET"])
+@blueprint.route("/change-status", methods=["GET"])
 def ChangeStatus():
     status[int(request.args.get("controller"))][int(request.args.get(
         "button"))] = not status[int(request.args.get("controller"))][int(request.args.get("button"))]
     return Response(status=204)
 
 
-@app.route("/return-status", methods=["GET"])
+@blueprint.route("/return-status", methods=["GET"])
 def ReturnStatus():
     return status[int(request.args.get("controller"))]
 
