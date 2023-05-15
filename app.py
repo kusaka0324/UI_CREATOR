@@ -6,7 +6,7 @@ app = Flask(__name__)
 status = [{"button" + str(j): False for j in range(5)} for i in range(5)]
 
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/controller", methods=["GET", "POST"])
 def Controller():
     if request.method == "GET":
         return render_template("controller" + request.args.get("controller") + ".html")
