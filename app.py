@@ -4,7 +4,7 @@ from flask import Blueprint, Flask, Response, render_template, request
 app = Flask(__name__)
 blueprint = Blueprint("controller", __name__, url_prefix="/controller")
 
-status = [{"button" + str(j): False for j in range(5)} for i in range(5)]
+status = [{"button":[False for j in range(5)]} for i in range(5)]
 
 
 @blueprint.route("/", methods=["GET", "POST"])
@@ -33,8 +33,8 @@ def Controller():
 
 @blueprint.route("/change-status", methods=["GET"])
 def ChangeStatus():
-    status[int(request.args.get("controller"))][int(request.args.get(
-        "button"))] = not status[int(request.args.get("controller"))][int(request.args.get("button"))]
+    status[int(request.args.get("controller"))]["button"][int(request.args.get(
+        "button"))] = not status[int(request.args.get("controller"))]["button"][int(request.args.get("button"))]
     return Response(status=204)
 
 
