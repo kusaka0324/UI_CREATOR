@@ -10,6 +10,7 @@ body {
   height  : screen;
   width   : 100%;
   background: #EAEAEA;
+  font-family : 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 ::-webkit-scrollbar {
