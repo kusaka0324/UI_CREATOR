@@ -16,7 +16,7 @@ const ContentGridItem= styled.main`
   grid-column: 1;
   width      : 100%;
   height     : 100%;
-  background : #1c1c1c;
+  background : #ECECEC;
 `;
 
 const ContentWrapper= styled.div`

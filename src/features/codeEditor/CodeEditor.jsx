@@ -1,6 +1,7 @@
 import React  from 'react';     
 import styled, { css } from 'styled-components';
-import { EditHtml } from './editCode';
+import { EditHtml, EditCss } from './editCode';
+import { SelectCssProps } from './properties';
 
 export const CodeEditor = () => {
   const [activeTab, setActiveTab] = React.useState('html');
@@ -20,22 +21,24 @@ export const CodeEditor = () => {
       </EditorHead>
       <EditArea> 
         <TabPanel >
-          {/* {activeTab === 'html' && <EditHtml/>}
-          {activeTab === 'css' && <EditCss/>} */}
+          {activeTab === 'html' && <EditHtml/>}
+          {activeTab === 'css' && <EditCss/>}
         </TabPanel>
       </EditArea>
       </Tabs>
+      <SelectCssProps/>
     </EditorLayout>
   );
 };
 
 const EditorLayout= styled.div`
-    position   : relative;
-    margin-left: 1.25rem;
-    height     : calc(100vh - 8rem);
-    width      : calc(100vh - 8rem);
-    background : #1c1c1c;
-    overflow   : auto;
+    position     : relative;
+    margin-left  : 1.25rem;
+    height       : calc(100vh - 8rem);
+    width        : calc(100vh - 8rem);
+    background   : #1c1c1c;
+    border-radius: 20px;
+    overflow     : auto;
 `;
 
 const EditorHead= styled.div`
@@ -43,10 +46,10 @@ const EditorHead= styled.div`
 `; 
 
 const EditArea= styled.div`
-  padding      : 0.125rem 0 1.25rem 0;
+  padding      : 0.5rem 0.5rem 0 0.5rem;
   height       : 100%;
   width        : 100%;
-  background   : #0D0E10;
+  background   : #1c1c1c;
 `;
 
 const Tabs= styled.div`
@@ -69,7 +72,7 @@ const Tab= styled.li`
   line-height : 3rem;
   width      : 7rem;
 
-  color      : #2962ff;
+  color      : #6129FF;
   font-size  : 1.25rem;
   font-weight: 600;    
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -80,9 +83,9 @@ const Tab= styled.li`
     props.active &&
     css`
       height       : 100%;
-      font-size: 1.25rem;
-      color        :#C9E8FF;
-      background   :#2962ff;
+      font-size    : 1.25rem;
+      color        :#FFFFFF;
+      background   :#6129FF;
       border-bottom: none;
       transition: 0.3s;
     `
