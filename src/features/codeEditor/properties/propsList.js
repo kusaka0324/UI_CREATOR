@@ -1,46 +1,46 @@
 export const propsList= [
   {
     id: 0,
-    propsName: 'width',
+    propName: 'width',
     unit     : 'px',
   },
   {
     id: 1,
-    propsName: 'height',
+    propName: 'height',
     unit     : 'px',
   },
   {
     id: 2,
-    propsName: 'background',
+    propName: 'background',
     unit     : 'color-code',
   },
   {
     id: 3,
-    propsName: 'color',
+    propName: 'color',
     unit     : 'color-code',
   },
   {
     id: 4,
-    propsName: 'font-size',
+    propName: 'font-size',
     unit     : 'px',
   },   
   {
     id: 5,
-    propsName: 'border',
+    propName: 'border',
     unit     : 'confusion',
   },
   {
     id: 6,
-    propsName: 'border-radius',
+    propName: 'border-radius',
     unit     : 'px',
   },  
   {
     id: 7,
-    propsName: 'box-shadow',
+    propName: 'box-shadow',
     unit     : 'confusion',
   },
   {
     id: 8,
-    propsName: 'active',
+    propName: 'active',
   },
 ];
