@@ -3,13 +3,13 @@ import { MainLayout, ContentLayout } from '@/components/layouts';
 import { ScreenLayout }  from '@/features/screen';
 import { CodeEditor }  from '@/features/codeEditor';
 import { PreviewLayout } from '@/components/layouts/PreviewLayout';
-import { IconButton, Topber } from '@/components/ui';
-import styled from 'styled-components';
-import CodeIcon     from '@mui/icons-material/Code';
-import GridViewIcon from '@mui/icons-material/GridView';
-import SettingsIcon from '@mui/icons-material/Settings';
-import { SelectControllers } from '../controllers/SelectControllers';
-import { SelectCssProps } from '../properties';
+import { Topber, IconButton } from '@/components/ui';
+import { SelectControllers } from '../controller/SelectControllers';
+
+import styled         from 'styled-components';
+import CodeIcon       from '@mui/icons-material/Code';
+import GridViewIcon   from '@mui/icons-material/GridView';
+import SmartphoneIcon from '@mui/icons-material/Smartphone';
 
 export const MainPage = () => {
   const [activeContent, setActiveContent] = React.useState('codeEditor');
@@ -19,7 +19,7 @@ export const MainPage = () => {
   }
   return (
     <MainLayout >
-      <Topber title={'UI'} accentTitle={'CREATER'} />
+      <Topber />
       <PreviewLayout >
         <ScreenLayout ></ScreenLayout>        
       </PreviewLayout>
@@ -27,47 +27,47 @@ export const MainPage = () => {
         <Navigation >
           <NavList >
             <IconButton 
-              icon   = { <CodeIcon/> }
-              onClick= { () => handleButtonClick('codeEditor') } 
-              active = { activeContent==='codeEditor' } 
-            />
-            <IconButton 
               icon   = { <GridViewIcon/> }
+              title  = { 'buttons' }
               onClick= { () => handleButtonClick('displayButtons') }
               active = { activeContent==='displayButtons' } 
             />
             <IconButton 
-              icon   = { <SettingsIcon/> }
+              icon   = { <CodeIcon/> }
+              title  = { 'code' }
+              onClick= { () => handleButtonClick('codeEditor') } 
+              active = { activeContent==='codeEditor' } 
+            />
+            <IconButton 
+              icon   = { <SmartphoneIcon/> }
+              title  = { 'preview' }
               onClick= { () => handleButtonClick('setCustom') } 
               active = { activeContent==='setCustom' }
             />
           </NavList>
         </Navigation>
-      { activeContent === 'codeEditor' && (
-        <>
-          <CodeEditor />
-          {/* <SelectCssProps />         */}
-        </>
-
-        )
-      }
-      { activeContent === 'displayButtons' && (
-        <div style={{flexDirection:'column'}}>
-          <SelectControllers/>
-        </div>
-        )
-      }
+        { activeContent === 'codeEditor' && (<CodeEditor />)}
+        { activeContent === 'displayButtons' && (
+          <div style={{flexDirection:'column'}}>
+            <SelectControllers/>
+          </div>
+          )
+        }
       </ContentLayout>        
     </MainLayout>
   )
 }
 
 const Navigation= styled.ul`
-  width        : 3.75rem;
+  margin-left  : 1rem;
+  padding-top  : 2.15rem;
+  width        : 5.75rem;
   height       : 100%;
-  background   : #2B2B2B;
+  background   : #ffffff;
   opacity      : 0.8;
-  list-style : none;
+  list-style   : none;
+  border-radius: 20px;
+  box-shadow   : 2px 2px 2px 2px #a4a4a4;
 `;
 
 const NavList= styled.li`
