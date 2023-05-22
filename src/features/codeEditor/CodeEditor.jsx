@@ -2,6 +2,7 @@ import React  from 'react';
 import styled, { css } from 'styled-components';
 import { EditHtml, EditCss } from './editCode';
 import { SelectCssProps } from './properties';
+import { Header } from '@/components/ui';
 
 export const CodeEditor = () => {
   const [activeTab, setActiveTab] = React.useState('html');
@@ -12,6 +13,8 @@ export const CodeEditor = () => {
 
   return (
     <EditorLayout>
+      <Header title={'Code'} subTitle={'操作ボタンをスタイリングしてみよう'} />
+      
       <Tabs>
       <EditorHead >
         <TabList>
@@ -36,9 +39,6 @@ const EditorLayout= styled.div`
     margin-left  : 1.25rem;
     height       : calc(100vh - 8rem);
     width        : calc(100vh - 8rem);
-    background   : #1c1c1c;
-    border-radius: 20px;
-    overflow     : auto;
 `;
 
 const EditorHead= styled.div`

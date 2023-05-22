@@ -22,17 +22,18 @@ const IconButtonStyle= styled.div`
 `;
 
 const ButtonStyle= styled.button`
-  height         : 3rem;
-  width          : 3rem;
-  outline        : 0;
-  border         : 0;
-  border-radius  : 15px;
-  color          : #6129FF;
+  height       : 3rem;
+  width        : 3rem;
+  outline      : 0;
+  border       : 0;
+  border-radius: 15px;
+  color        : #6129FF;
+  background   : #FEFEFE;
 
   ${(props) => 
     props.active && 
     css`
-      color     : #ffffff;
+      color     : #FEFEFE;
       background: #6129FF;
       transition: 0.3s;
     `

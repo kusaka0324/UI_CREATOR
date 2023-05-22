@@ -12,7 +12,7 @@ import GridViewIcon   from '@mui/icons-material/GridView';
 import SmartphoneIcon from '@mui/icons-material/Smartphone';
 
 export const MainPage = () => {
-  const [activeContent, setActiveContent] = React.useState('codeEditor');
+  const [activeContent, setActiveContent] = React.useState('displayButtons');
 
   function handleButtonClick(contentId) {
     setActiveContent(contentId);
@@ -47,12 +47,7 @@ export const MainPage = () => {
           </NavList>
         </Navigation>
         { activeContent === 'codeEditor' && (<CodeEditor />)}
-        { activeContent === 'displayButtons' && (
-          <div style={{flexDirection:'column'}}>
-            <SelectControllers/>
-          </div>
-          )
-        }
+        { activeContent === 'displayButtons' && (<SelectControllers/>)}
       </ContentLayout>        
     </MainLayout>
   )
@@ -63,7 +58,7 @@ const Navigation= styled.ul`
   padding-top  : 2.15rem;
   width        : 5.75rem;
   height       : 100%;
-  background   : #ffffff;
+  background   : #FEFEFE;
   opacity      : 0.8;
   list-style   : none;
   border-radius: 20px;
@@ -76,6 +71,6 @@ const NavList= styled.li`
   align-items    : center;
   height         : 100%;
   width          : 100%;
-  color          :#FFFDFD;
+  color          :#FEFEFE;
   text-decoration: none;
 `;

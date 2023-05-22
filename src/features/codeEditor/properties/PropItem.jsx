@@ -20,21 +20,21 @@ const ItemWrapper= styled.div`
   padding-left : 1.75rem;
   width        : 17.5rem;
   height       : 3.25rem;
-  background   : #e6e6e6;
+  background   : #6129FF;
   border-radius: 20px;
 
 
   > span {
     padding-left: 10px;
     font-size   : 15px;
-    color       : #6129FF;
+    color       : #FEFEFE;
   }
 `;
 
 const PropStyle= styled.div`
   font-size  : 1.25rem;
   font-weight: bold;
-  color      : #6129FF;
+  color      : #FEFEFE;
 `;
 
 const InputField= styled.input`
@@ -49,7 +49,7 @@ const InputField= styled.input`
   font-weight  : 800;
 
   &:focus {
-    padding-left: 2px;
-    border: 3px solid #6129FF;
+    /* padding-left: 2px;
+    border: 3px solid #6129FF; */
   }
 `;

@@ -2,11 +2,13 @@ import React  from 'react';
 import styled from 'styled-components';
 
 import { DraggableLayer } from '@/components/options/dnds';
+import { Header } from '@/components/ui';
 import { opsList }  from './opsList';
 
 export const SelectControllers = () => {
   return (
     <SelectAreaLayout>
+      <Header title={'Buttons'} subTitle={'操作ボタンを配置しよう'} />
       { opsList.map(({id, head, contents}) => (
         <OpsSelectArea key={id} >
           <OpsHeader>{head}</OpsHeader>
@@ -15,7 +17,7 @@ export const SelectControllers = () => {
             {contents.map(({id, opsName, opsIcon})=>
               <OpsItem key={id} >
                 <DraggableLayer>
-                  <img src={opsIcon} alt={opsName} />
+                  {opsIcon}
                 </DraggableLayer>
                 <span>{opsName}</span>
               </OpsItem>
@@ -28,24 +30,21 @@ export const SelectControllers = () => {
 }
 
 const SelectAreaLayout= styled.div`
-  position   : relative;
-  display    : grid;
-  margin-left: 1.25rem;
-  height     : calc(100vh - 8rem);
-  width      : calc(100vh - 8rem);
+  width  : 100%;
+  height : 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows   : 3.45rem 1fr 1fr 1fr;
 `;
 
 const OpsSelectArea= styled.div`
   margin-bottom: 0.5rem;
-  width        : 100%;
-  height       : calc(100%-0.5rem);
   background   : #424242;
   border-radius: 20px;
 `;
 
 const OpsHeader= styled.div`
   margin         : 0.75rem;
-  position       : absolute;
   display        : flex;
   align-items    : center;
   justify-content: center;
@@ -63,10 +62,7 @@ const OpsList= styled.ul`
   display        : flex;
   align-items    : center;
   justify-content: center;
-  height     : 100%;
-  width      : 100%;
   list-style : none;
-
 `;
 
 const OpsItem= styled.li`
@@ -74,18 +70,19 @@ const OpsItem= styled.li`
   flex-direction : column;
   align-items    : center;
   justify-content: center;
-  margin: 2.5rem;
-
+  margin         : 1.5rem 0 2.5rem 0;
+  height         : 100%;
+  width          :100%;
   img {
-
-    height: 80px;
-    width : 80px;
+    height: 3.25rem;
+    width : 3.25rem;
     background: #ffffff;
 
   }
   > span {
+    margin-top : 1.25rem;
     color      : #C4C4C4;
-    font-size  : 1.25rem;
+    font-size  : 1rem;
     font-weight: 600;
   }
 `;
