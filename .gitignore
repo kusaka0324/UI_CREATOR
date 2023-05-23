@@ -23,6 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 
+.env
+
 # ORIKAMIxNEP
 npm.out
 flask.out
