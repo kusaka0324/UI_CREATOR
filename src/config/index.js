@@ -1,1 +1,1 @@
-export const API_BaseURL = process.env.CONTROLURL;
+export const API_URL = process.env.UI_CREATOR_API_URL;

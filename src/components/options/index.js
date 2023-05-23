@@ -1,1 +1,1 @@
-export * from './dnds';
+export * from './dnd';
