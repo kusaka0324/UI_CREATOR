@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { RecoilRoot }    from 'recoil'
 
 import './index.css'
-import Router from './router'
+import App from './App'
 import { EnableDndProvider } from './providers'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <RecoilRoot>
         <EnableDndProvider>
-          <Router />
+          <App />
         </EnableDndProvider>        
       </RecoilRoot>
     </BrowserRouter>
