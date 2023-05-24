@@ -11,12 +11,14 @@ export const opsList= [
       {
         id: 'leftForward',
         opsName: '左前輪',
-        opsIcon: <PlayArrowIcon sx={{rotate:'45deg'}}/>,
+        Icon   : PlayArrowIcon,
+        rotate : '-90deg',
       },
       {  
         id: 'leftReverse',
         opsName: '左後輪',
-        Icon: PlayArrowIcon,
+        Icon   : PlayArrowIcon,
+        rotate: '90deg',
       },
       {
         id: 'leftTurn',
@@ -32,12 +34,14 @@ export const opsList= [
       {
         id: 'rightForward',
         opsName: '右前輪',
-        Icon: PlayArrowIcon,
+        Icon   : PlayArrowIcon,
+        rotate : '-90deg',
       },
       {
         id: 'rightReverse',
         opsName: '右後輪',
-        Icon: PlayArrowIcon,
+        Icon   : PlayArrowIcon,
+        rotate : '90deg',
       },
       {
         id: 'rightTurn',
