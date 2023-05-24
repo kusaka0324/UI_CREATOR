@@ -1,7 +1,7 @@
 import React  from 'react';
 import styled from 'styled-components';
 
-import { DraggableLayer } from '@/components/options/dnds';
+import { DraggableLayer } from '@/components/options/dnd';
 import { Header } from '@/components/ui';
 import { opsList }  from './opsList';
 
@@ -9,42 +9,47 @@ export const SelectControllers = () => {
   return (
     <SelectAreaLayout>
       <Header title={'Buttons'} subTitle={'操作ボタンを配置しよう'} />
-      { opsList.map(({id, head, contents}) => (
-        <OpsSelectArea key={id} >
-          <OpsHeader>{head}</OpsHeader>
-          
-          <OpsList>
-            {contents.map(({id, opsName, opsIcon})=>
-              <OpsItem key={id} >
-                <DraggableLayer>
-                  {opsIcon}
-                </DraggableLayer>
-                <span>{opsName}</span>
-              </OpsItem>
-            )}
-          </OpsList>
-        </OpsSelectArea>
-      ))}
+
+        { opsList.map(({index, id, head, contents}) => (
+          <OpsSelectArea key={id} gridItem={index}>
+            <OpsHeader>{head}</OpsHeader>
+            <OpsList>
+              {contents.map(({id, opsName, Icon, rotate})=>
+                <OpsItem key={id} >
+                  <DraggableLayer>
+                    <OpsButton>
+                      <Icon style={{ rotate: `${rotate}`}}/>
+                    </OpsButton>
+                  </DraggableLayer>
+                  <span>{opsName}</span>
+                </OpsItem>
+              )}
+            </OpsList>
+          </OpsSelectArea>
+        ))}        
     </SelectAreaLayout>
   )
 }
 
 const SelectAreaLayout= styled.div`
-  width  : 100%;
-  height : 100%;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows   : 3.45rem 1fr 1fr 1fr;
+  display       : flex;
+  flex-direction: column;
+  gap           : 0.5rem;
+  margin-left   : 1.25rem;
+  height        : calc(100vh - 8rem);
+  width         : calc(100vh - 8rem);
+  
 `;
 
-const OpsSelectArea= styled.div`
-  margin-bottom: 0.5rem;
-  background   : #424242;
+const OpsSelectArea= styled.section`
+  height       : 28.5%;
+  width        : 100%;
+  background   : #1e1e1e;
   border-radius: 20px;
 `;
 
 const OpsHeader= styled.div`
-  margin         : 0.75rem;
+  margin         : 0.75rem 0 0 0.75rem;
   display        : flex;
   align-items    : center;
   justify-content: center;
@@ -62,7 +67,8 @@ const OpsList= styled.ul`
   display        : flex;
   align-items    : center;
   justify-content: center;
-  list-style : none;
+  gap            : 15%;
+  list-style     : none;
 `;
 
 const OpsItem= styled.li`
@@ -72,17 +78,20 @@ const OpsItem= styled.li`
   justify-content: center;
   margin         : 1.5rem 0 2.5rem 0;
   height         : 100%;
-  width          :100%;
-  img {
-    height: 3.25rem;
-    width : 3.25rem;
-    background: #ffffff;
-
-  }
   > span {
     margin-top : 1.25rem;
     color      : #C4C4C4;
     font-size  : 1rem;
     font-weight: 600;
   }
+`;
+
+const OpsButton= styled.div`  
+  display        :flex;
+  justify-content: center;
+  align-items    : center;
+  width          : 60px;
+  height         : 80px;
+  background     : #d4d4d4;
+  font-size      : 50px;
 `;
