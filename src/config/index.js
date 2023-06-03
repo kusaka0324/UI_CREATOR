@@ -1,1 +1,0 @@
-export const API_URL = process.env.UI_CREATOR_API_URL;
