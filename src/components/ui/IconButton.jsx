@@ -1,4 +1,4 @@
-import React  from 'react';
+import React           from 'react';
 import styled, { css } from 'styled-components';
 
 export const IconButton = ({icon, title, ...props}) => {
@@ -8,8 +8,8 @@ export const IconButton = ({icon, title, ...props}) => {
         {icon}
       </ButtonStyle>      
       <IconTitle>
-          {title}
-        </IconTitle>      
+        {title}
+      </IconTitle>      
     </IconButtonStyle>
   );
 };
