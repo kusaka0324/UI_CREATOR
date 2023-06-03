@@ -1,4 +1,4 @@
-const API_URL = "http://54.249.130.95:81/change-status";
+const API_URL = "http://54.249.130.95/controller/change-status";
 const controller = document.title.slice(-1);
 
 button = [
