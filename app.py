@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 from flask import Blueprint, Flask, Response, render_template, request
 
 app = Flask(__name__)
-blueprint = Blueprint("controller", __name__, url_prefix="/controller", static_url_path="/controller/static", static_folder="controller/static")
+blueprint = Blueprint("controller", __name__, url_prefix="/controller")
 
 status = [{"button":[False for j in range(5)]} for i in range(5)]
 
@@ -29,6 +29,11 @@ def Controller():
         with open("controller" + data["controller"] + ".css", "wb") as file:
             file.write(data["css"])
         return Response(status=204)
+
+
+@app.route("/controller/static/<path:path>")
+def serveStatic(path):
+    return app.send_static_file(path)
 
 
 @blueprint.route("/change-status", methods=["GET"])
