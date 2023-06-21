@@ -24,14 +24,14 @@ for (let i = 0; i < button.length; i++) {
         toggleButton(controller, i);
       });
     } else {
-      buttonElements[i].addEventListener("click", function () {
-        toggleButton(controller, i - 5);
-        toggleButton(controller, i - 3);
-      });
-      buttonElements[i].addEventListener("mouseup", function () {
-        toggleButton(controller, i - 5);
-        toggleButton(controller, i - 3);
-      });
+      // buttonElements[i].addEventListener("click", function () {
+      //   toggleButton(controller, i - 5);
+      //   toggleButton(controller, i - 3);
+      // });
+      // buttonElements[i].addEventListener("mouseup", function () {
+      //   toggleButton(controller, i - 5);
+      //   toggleButton(controller, i - 3);
+      // });
     }
   }
 }
