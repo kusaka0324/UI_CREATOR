@@ -17,22 +17,25 @@ for (let i = 0; i < 7; i++) {
 for (let i = 0; i < button.length; i++) {
   if (buttonElements[i] !== null) {
     if (i < 5) {
-      // buttonElements[i].addEventListener("click", function () {
-      //   toggleButton(controller, i);
-      // });
+      buttonElements[i].addEventListener("click", function () {
+        toggleButton(controller, i);
+        console.log("click")
+        event.stopPropagation();
+      });
       buttonElements[i].addEventListener("mouseup", function () {
         toggleButton(controller, i);
-        console.log(i)
+        console.log("mouseup")
+        event.stopPropagation();
       });
     } else {
-      // buttonElements[i].addEventListener("click", function () {
-      //   toggleButton(controller, i - 5);
-      //   toggleButton(controller, i - 3);
-      // });
-      // buttonElements[i].addEventListener("mouseup", function () {
-      //   toggleButton(controller, i - 5);
-      //   toggleButton(controller, i - 3);
-      // });
+      buttonElements[i].addEventListener("click", function () {
+        toggleButton(controller, i - 5);
+        toggleButton(controller, i - 3);
+      });
+      buttonElements[i].addEventListener("mouseup", function () {
+        toggleButton(controller, i - 5);
+        toggleButton(controller, i - 3);
+      });
     }
   }
 }
