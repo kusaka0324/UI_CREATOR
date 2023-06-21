@@ -18,13 +18,9 @@ for (let i = 0; i < button.length; i++) {
     if (i < 5) {
       buttonElements[i].addEventListener("mousedown", function () {
         toggleButton(controller, i);
-        let now = new Date();
-        console.log(now.getSeconds() + " mousedown")
       });
       buttonElements[i].addEventListener("mouseup", function () {
         toggleButton(controller, i);
-        let now = new Date();
-        console.log(now.getSeconds() + " mouseup")
       });
     } else {
       buttonElements[i].addEventListener("mousedown", function () {
