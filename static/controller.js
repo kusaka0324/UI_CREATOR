@@ -10,6 +10,7 @@ button = [
   "rightTurn",
   "leftTurn",
 ];
+let buttonElements
 for (let i = 0; i < 7; i++) {
   buttonElements.push(document.getElementById(button[i] + "Button"));
 }
