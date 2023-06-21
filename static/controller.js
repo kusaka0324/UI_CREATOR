@@ -16,18 +16,18 @@ for (let i = 0; i < 7; i++) {
 
 for (let i = 0; i < button.length; i++) {
   if (i < 5) {
-    button[i] + "Button".addEventListener("click", function () {
+    button[i].addEventListener("click", function () {
       toggleButton(controller, i);
     });
-    button[i] + "Button".addEventListener("mouseup", function () {
+    button[i].addEventListener("mouseup", function () {
       toggleButton(controller, i);
     });
   } else {
-    button[i] + "Button".addEventListener("click", function () {
+    button[i].addEventListener("click", function () {
       toggleButton(controller, i - 5);
       toggleButton(controller, i - 3);
     });
-    button[i] + "Button".addEventListener("mouseup", function () {
+    button[i].addEventListener("mouseup", function () {
       toggleButton(controller, i - 5);
       toggleButton(controller, i - 3);
     });
