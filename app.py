@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 from flask import Blueprint, Flask, Response, render_template, request
 
 app = Flask(__name__)
-blueprint = Blueprint("controller", __name__, url_prefix="/controller", static_folder="./static")
+blueprint = Blueprint("controller", __name__, url_prefix="/controller", static_url_path="/controller/static", static_folder="controller/static")
 
 status = [{"button":[False for j in range(5)]} for i in range(5)]
 
