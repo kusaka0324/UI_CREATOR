@@ -20,13 +20,11 @@ for (let i = 0; i < button.length; i++) {
         toggleButton(controller, i);
         let now = new Date();
         console.log(now.getSeconds() + " mousedown")
-        event.stopPropagation();
       });
       buttonElements[i].addEventListener("mouseup", function () {
         toggleButton(controller, i);
         let now = new Date();
         console.log(now.getSeconds() + " mouseup")
-        event.stopPropagation();
       });
     } else {
       buttonElements[i].addEventListener("mousedown", function () {
