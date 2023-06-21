@@ -22,6 +22,7 @@ for (let i = 0; i < button.length; i++) {
       // });
       buttonElements[i].addEventListener("mouseup", function () {
         toggleButton(controller, i);
+        console.log(i)
       });
     } else {
       // buttonElements[i].addEventListener("click", function () {
