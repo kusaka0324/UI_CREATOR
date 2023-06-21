@@ -17,12 +17,11 @@ for (let i = 0; i < 7; i++) {
 for (let i = 0; i < button.length; i++) {
   if (buttonElements[i] !== null) {
     if (i < 5) {
-      buttonElements[i].addEventListener("click", function () {
-        toggleButton(controller, i);
-      });
+      // buttonElements[i].addEventListener("click", function () {
+      //   toggleButton(controller, i);
+      // });
       buttonElements[i].addEventListener("mouseup", function () {
         toggleButton(controller, i);
-        event.stopPropagation();
       });
     } else {
       buttonElements[i].addEventListener("click", function () {
