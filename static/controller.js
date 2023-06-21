@@ -19,12 +19,12 @@ for (let i = 0; i < button.length; i++) {
     if (i < 5) {
       buttonElements[i].addEventListener("click", function () {
         toggleButton(controller, i);
-        console.log(now.getSeconds+"click")
+        console.log(now.getSeconds() + "click")
         event.stopPropagation();
       });
       buttonElements[i].addEventListener("mouseup", function () {
         toggleButton(controller, i);
-        console.log(now.getSeconds+"mouseup")
+        console.log(now.getSeconds() + "mouseup")
         event.stopPropagation();
       });
     } else {
