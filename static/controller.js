@@ -11,23 +11,23 @@ button = [
   "leftTurn",
 ];
 for (let i = 0; i < 7; i++) {
-  button.push(document.getElementById(button[i] + "Button"));
+  buttonElements.push(document.getElementById(button[i] + "Button"));
 }
 
 for (let i = 0; i < button.length; i++) {
   if (i < 5) {
-    button[i].addEventListener("click", function () {
+    buttonElements[i].addEventListener("click", function () {
       toggleButton(controller, i);
     });
-    button[i].addEventListener("mouseup", function () {
+    buttonElements[i].addEventListener("mouseup", function () {
       toggleButton(controller, i);
     });
   } else {
-    button[i].addEventListener("click", function () {
+    buttonElements[i].addEventListener("click", function () {
       toggleButton(controller, i - 5);
       toggleButton(controller, i - 3);
     });
-    button[i].addEventListener("mouseup", function () {
+    buttonElements[i].addEventListener("mouseup", function () {
       toggleButton(controller, i - 5);
       toggleButton(controller, i - 3);
     });
