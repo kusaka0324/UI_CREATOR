@@ -16,10 +16,10 @@ for (let i = 0; i < 7; i++) {
 for (let i = 0; i < button.length; i++) {
   if (buttonElements[i] !== null) {
     if (i < 5) {
-      buttonElements[i].addEventListener("click", function () {
+      buttonElements[i].addEventListener("mousedown", function () {
         toggleButton(controller, i);
         let now = new Date();
-        console.log(now.getSeconds() + " click")
+        console.log(now.getSeconds() + " mousedown")
         event.stopPropagation();
       });
       buttonElements[i].addEventListener("mouseup", function () {
@@ -29,7 +29,7 @@ for (let i = 0; i < button.length; i++) {
         event.stopPropagation();
       });
     } else {
-      buttonElements[i].addEventListener("click", function () {
+      buttonElements[i].addEventListener("mousedown", function () {
         toggleButton(controller, i - 5);
         toggleButton(controller, i - 3);
       });
