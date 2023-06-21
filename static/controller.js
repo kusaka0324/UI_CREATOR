@@ -9,28 +9,30 @@ const button = [
   "rightTurn",
   "leftTurn",
 ];
-let buttonElements = []
+let buttonElements = [];
 for (let i = 0; i < 7; i++) {
   buttonElements.push(document.getElementById(button[i] + "Button"));
 }
 
 for (let i = 0; i < button.length; i++) {
-  if (i < 5) {
-    buttonElements[i].addEventListener("click", function () {
-      toggleButton(controller, i);
-    });
-    buttonElements[i].addEventListener("mouseup", function () {
-      toggleButton(controller, i);
-    });
-  } else {
-    buttonElements[i].addEventListener("click", function () {
-      toggleButton(controller, i - 5);
-      toggleButton(controller, i - 3);
-    });
-    buttonElements[i].addEventListener("mouseup", function () {
-      toggleButton(controller, i - 5);
-      toggleButton(controller, i - 3);
-    });
+  if (buttonElements[i] !== null) {
+    if (i < 5) {
+      buttonElements[i].addEventListener("click", function () {
+        toggleButton(controller, i);
+      });
+      buttonElements[i].addEventListener("mouseup", function () {
+        toggleButton(controller, i);
+      });
+    } else {
+      buttonElements[i].addEventListener("click", function () {
+        toggleButton(controller, i - 5);
+        toggleButton(controller, i - 3);
+      });
+      buttonElements[i].addEventListener("mouseup", function () {
+        toggleButton(controller, i - 5);
+        toggleButton(controller, i - 3);
+      });
+    }
   }
 }
 
