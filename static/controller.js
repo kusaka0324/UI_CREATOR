@@ -13,18 +13,19 @@ let buttonElements = [];
 for (let i = 0; i < 7; i++) {
   buttonElements.push(document.getElementById(button[i] + "Button"));
 }
-let now = new Date();
 for (let i = 0; i < button.length; i++) {
   if (buttonElements[i] !== null) {
     if (i < 5) {
       buttonElements[i].addEventListener("click", function () {
         toggleButton(controller, i);
-        console.log(now.getSeconds() + "click")
+        let now = new Date();
+        console.log(now.getSeconds() + " click")
         event.stopPropagation();
       });
       buttonElements[i].addEventListener("mouseup", function () {
         toggleButton(controller, i);
-        console.log(now.getSeconds() + "mouseup")
+        let now = new Date();
+        console.log(now.getSeconds() + " mouseup")
         event.stopPropagation();
       });
     } else {
