@@ -26,11 +26,11 @@ for (let i = 0; i < button.length; i++) {
     } else {
       buttonElements[i].addEventListener("touchstart", function () {
         toggleButton(controller, i - 5);
-        toggleButton(controller, i - 3);
+        toggleButton(controller, -1 * i + 8);
       });
       buttonElements[i].addEventListener("touchend", function () {
         toggleButton(controller, i - 5);
-        toggleButton(controller, i - 3);
+        toggleButton(controller, -1 * i + 8);
       });
     }
   }
