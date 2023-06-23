@@ -16,18 +16,18 @@ for (let i = 0; i < 7; i++) {
 for (let i = 0; i < button.length; i++) {
   if (buttonElements[i] !== null) {
     if (i < 5) {
-      buttonElements[i].addEventListener("mousedown", function () {
+      buttonElements[i].addEventListener("touchstart", function () {
         toggleButton(controller, i);
       });
-      buttonElements[i].addEventListener("mouseup", function () {
+      buttonElements[i].addEventListener("touchend", function () {
         toggleButton(controller, i);
       });
     } else {
-      buttonElements[i].addEventListener("mousedown", function () {
+      buttonElements[i].addEventListener("touchstart", function () {
         toggleButton(controller, i - 5);
         toggleButton(controller, i - 3);
       });
-      buttonElements[i].addEventListener("mouseup", function () {
+      buttonElements[i].addEventListener("touchend", function () {
         toggleButton(controller, i - 5);
         toggleButton(controller, i - 3);
       });
