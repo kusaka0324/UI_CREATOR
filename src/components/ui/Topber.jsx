@@ -18,7 +18,7 @@ const HeaderStyle =styled.header`
   grid-row   : 1;
   grid-column: 1 / span 2;
   position   : relative;
-  height     : 100px;
+  height     : 80px;
   background : #fefefe;
   box-shadow : 10px 0px 10px rgba(0, 0, 0, 0.25);
 `;
@@ -30,7 +30,7 @@ const HeaderTitle = styled.div`
   left       : 2.75rem;
   line-height: 100px;
   > img {
-    height: 100px;
+    height: 80px;
     display: flex;
     align-items: center;
   }
