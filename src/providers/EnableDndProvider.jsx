@@ -1,6 +1,6 @@
-import React from 'react';
+import React            from 'react';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import { DndProvider } from 'react-dnd';
+import { DndProvider }  from 'react-dnd';
 
 export const EnableDndProvider = ({ children }) => {
   return (

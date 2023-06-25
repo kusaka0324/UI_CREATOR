@@ -1,15 +1,18 @@
-import React          from 'react';     
-import styled,{ css } from 'styled-components';
-import StyleIcon      from '@mui/icons-material/Style';
-import ClearIcon      from '@mui/icons-material/Clear';
+import React, { useState }      from 'react';     
+import styled,{ css }           from 'styled-components';
+import StyleIcon                from '@mui/icons-material/Style';
+import ClearIcon                from '@mui/icons-material/Clear';
+import FormatIndentIncreaseIcon from '@mui/icons-material/FormatIndentIncrease';
+import ColorLensIcon            from '@mui/icons-material/ColorLens';
 
 import { EditHtml, EditCss } from './Editcode';
 import { SelectCssProps }    from './properties';
 import { Header }            from '@/components/ui';
 
 export const CodeEditor = () => {
-  const [ activeTab, setActiveTab ]      = React.useState('css');
-  const [ isDrawerOpen, setIsDrawerOpen ]= React.useState(false);
+  const [ activeTab, setActiveTab ]         = useState('css');
+  const [ isDrawerOpen, setIsDrawerOpen ]   = useState(false);
+  const [ isColorPallete, setIsColorPallete]= useState(false);
 
   const handleClick= (tabName) => {
     setActiveTab(tabName);
@@ -36,6 +39,12 @@ export const CodeEditor = () => {
                 : <CloseIcon/>
               }
             </DrawerIconButton>
+            <CodeFormatButton >
+              <FormatIndentIncreaseIcon style={{color: '#c2c2c2'}}/>
+            </CodeFormatButton>
+            <ColorPalleteButton >
+              <ColorLensIcon style={{color:'#c2c2c2'}} />
+            </ColorPalleteButton>
           </EditorHead>
           <EditArea> 
             <TabPanel>
@@ -51,14 +60,14 @@ export const CodeEditor = () => {
 };
 
 const EditorLayout= styled.div`
-  margin-left  : 1.25rem;
+  margin-left  : 0.75rem;
   height       : 100%;
   width        : calc(100vh - 8rem);
 `;
 
 const EditorWrapper= styled.section`
   position     : relative;
-  height       : calc(100% - 5.25rem);
+  height       : calc(100% - 5.5rem);
   width        : 100%;
   background   : #1c1c1c;
   border-radius: 20px;
@@ -145,4 +154,44 @@ const OpenIcon= styled(StyleIcon)`
 
 const CloseIcon= styled(ClearIcon)`
   color: #959595;
+`;
+
+const CodeFormatButton= styled.button`
+  position       : absolute;
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  top            : 50%;
+  right          : 40px;
+  border         : 0;   
+  width          : 3rem;
+  height         : 3rem;
+  background     : #1E1E1E;
+  border-radius  : 10px;
+  transform      : translateY(-50%);
+  z-index        : 99999;
+
+  &:hover {
+    background: #343434;
+  }
+`;
+
+const ColorPalleteButton= styled.button`
+  position       : absolute;
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  top            : 50%;
+  right          : 80px;
+  border         : 0;   
+  width          : 3rem;
+  height         : 3rem;
+  background     : #1E1E1E;
+  border-radius  : 10px;
+  transform      : translateY(-50%);
+  z-index        : 99999;
+
+  &:hover {
+    background: #343434;
+  }
 `;
