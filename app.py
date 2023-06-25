@@ -4,7 +4,7 @@ from flask import Blueprint, Flask, Response, render_template, request
 app = Flask(__name__)
 blueprint = Blueprint("controller", __name__, url_prefix="/controller")
 
-status = [{"button":[False for j in range(5)]} for i in range(5)]
+status = [{"button": [False for j in range(5)]} for i in range(5)]
 
 
 @blueprint.route("/", methods=["GET", "POST"])
@@ -31,6 +31,11 @@ def Controller():
         return Response(status=204)
 
 
+@app.route("/controller/static/<path:path>")
+def serveStatic(path):
+    return app.send_static_file(path)
+
+
 @blueprint.route("/change-status", methods=["GET"])
 def ChangeStatus():
     status[int(request.args.get("controller"))]["button"][int(request.args.get(
@@ -41,6 +46,7 @@ def ChangeStatus():
 @blueprint.route("/return-status", methods=["GET"])
 def ReturnStatus():
     return status[int(request.args.get("controller"))]
+
 
 app.register_blueprint(blueprint)
 
