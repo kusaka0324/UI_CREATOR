@@ -7,23 +7,22 @@ import { Screen }                         from '../screen';
 import { SidebarMenuList }                from '@/components/Layouts';
 import { Header, Sidebar, Topber }        from '@/components/ui';
 import { postCustom }                     from '../preview';
-import { EditByCssAtom, ScreenStateAtom } from '@/recoil/atoms';
+import { EditByCssAtom, IncludeButtonsAtom } from '@/recoil/atoms';
 
 
 export const PreviewPage = () => {
-  const editedCss         = useRecoilValue(EditByCssAtom);
-  const selectedController= useRecoilValue(ScreenStateAtom);
-  const setButtons        = useRecoilValue(ScreenStateAtom);
+  const editedCss = useRecoilValue(EditByCssAtom);
+  const setButtons= useRecoilValue(IncludeButtonsAtom);
 
   const postData= {
-    controller: selectedController,
+    controller: "0",
     button    : setButtons,
     css       : editedCss,
   }
 
   const handlePostCustom= () => {
-    preventDefault();
-    {console.log(postCustom(JSON.stringify(postData)))}
+   
+    {console.log(JSON.stringify(postData))}
   }
 
   return (
@@ -35,7 +34,7 @@ export const PreviewPage = () => {
           <Header title={'Preview'} subTitle={'作成したUIを設定しよう'} />
           <PreviewWrapper>
             <Screen mode={'preview'} />
-            <ApplyButton onSubmit={handlePostCustom} >
+            <ApplyButton type='submit' onClick={handlePostCustom} >
               <label>Apply</label>
               <SendIcon />
             </ApplyButton>            
@@ -67,6 +66,7 @@ const ContentDiv= styled.div`
 
 const PreviewWrapper= styled.div`
   display        : flex;
+  flex-direction : column;
   justify-content: center;
   align-items    : center;
   height         : calc(100% - 8rem);
