@@ -1,2 +1,2 @@
-export * from './editCode';
+export * from './EditCode';
 export * from './CodeEditor';
