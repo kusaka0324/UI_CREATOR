@@ -28,14 +28,13 @@ export const DroppableScreen = () => {
 
         setDroppedButtons((prevItems)=> Array.from(new Set([...prevItems, newButtons])));
         setIncludePosition({ left, top });
-        return undefined;    
+        return undefined;
       }
     }),
     []
   );
   
   return (
-    <Screen >    
       <DroppableAreaStyle ref={drop} >
         { controllerList.map(({contents}) => (
           contents
@@ -54,7 +53,6 @@ export const DroppableScreen = () => {
           ))
         }
       </DroppableAreaStyle>
-		</Screen>
 	)
 }
 

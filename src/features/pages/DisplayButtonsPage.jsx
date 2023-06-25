@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
-import styled              from 'styled-components';
+import React  from 'react';
+import styled from 'styled-components';
 
 import { ContentLayout, MainLayout }     from '@/components/Layouts'
 import { DraggableBox, DroppableScreen } from '../controller'
 import { Header }                        from '@/components/ui';
 import { controllerList }                from '@/data';
+import { Screen }                        from '../screen';
 
 export const DisplayButtonsPage = () => {
   return (
     <MainLayout>      
       <PreviewLayout >
-        <DroppableScreen />
+        <Screen>
+          <DroppableScreen />
+        </Screen>
       </PreviewLayout>
       <ContentLayout>
         <SelectAreaLayout>
@@ -52,24 +55,24 @@ const PreviewLayout= styled.div`
 `;
 
 const SelectAreaLayout= styled.div`
+  margin-left   : 0.75rem;
   display       : flex;
   flex-direction: column;
-  gap           : 0.5rem;
-  margin-left   : 1.25rem;
-  height        : calc(100vh - 8rem);
-  width         : calc(100vh - 8rem);
-  
+  height        : 100%;
+  width         : calc(100% - 8rem);
 `;
 
 const OpsSelectArea= styled.section`
-  height       : 26vh;
+  height       : 100%;
   width        : 100%;
   background   : #1e1e1e;
   border-radius: 20px;
+  overflow-y   : auto;
 `;
 
 const OpsHeader= styled.div`
   margin         : 0.75rem 0 0 0.75rem;
+  position       : absolute;
   display        : flex;
   align-items    : center;
   justify-content: center;
@@ -85,11 +88,10 @@ const OpsHeader= styled.div`
 
 const OpsList= styled.ul`  
   display        : flex;
-  align-items    : center;
   justify-content: center;
   gap            : 15%;
-  list-style     : none;
-  height         : calc(100% - 3.1rem);
+  height         : 100%;
+  width          : 100%;
 `;
 
 const OpsItem= styled.li`

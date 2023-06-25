@@ -1,29 +1,25 @@
 import React  from 'react';
 import styled from 'styled-components';
 
-import { propsList } from './propsList';
-import { DraggableLayer } from '@/components/options';
-import { PropItem } from './PropItem';
+import { css_propsList } from '@/data';
+
+import { PropItem }      from './PropItem';
 
 export const SelectCssProps= () => {
   return (
     <SelectAreaLayout>
-      <SelectAreaTitle>
-        
-        CSS Properties
-      </SelectAreaTitle>
-      
+      <SelectAreaTitle>CSS Properties</SelectAreaTitle>
       <SelectAreaWrapper>
         <PropItemList>
-          {propsList.map(({id, propName, explanation, unit}) => (
+          {css_propsList.map(({id, propName, explanation, unit}) => (
             <li key={id} >
               <ExpStyle>{explanation}</ExpStyle>
-              <DraggableLayer >
+              {/* <DraggableItem > */}
                 <PropItem 
                   propName={propName} 
                   unit={unit}
                 />
-              </DraggableLayer>
+              {/* </DraggableItem> */}
             </li>              
           ))}          
         </PropItemList>
@@ -38,8 +34,9 @@ const SelectAreaLayout= styled.section`
   right        : 0;
   height       : 100%;
   width        : 50%;
-  background   : #1c1c1c;
+  background   : rgba(28, 28, 28, 0.5);
   border-radius: 0 20px 20px 0;
+  z-index      : 999;
 `;
 
 const SelectAreaTitle= styled.div`
@@ -64,12 +61,11 @@ const PropItemList= styled.ul`
   display       : flex;
   flex-direction: column;
   align-items   : center;
-  gap: 2.25rem;
+  gap           : 2.25rem;
 `;
 
 const ExpStyle= styled.span`
   color      : #929292;
   font-size  : 0.75rem;
   font-weight: 500;
-  
 `;
