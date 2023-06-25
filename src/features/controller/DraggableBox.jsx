@@ -25,7 +25,6 @@ export const DraggableBox= ({id, opsName, Icon, rotate, left, top}) => {
 };
 
 const DraggableBoxDiv= styled.div`
-  position  : absolute;
   height    : 60px;
   width     : 60px;
   transition: 0.3s;
