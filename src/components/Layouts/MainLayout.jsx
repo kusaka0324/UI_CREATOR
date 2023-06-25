@@ -15,8 +15,8 @@ export const MainLayout = ({children}) => {
 const MainWrapper= styled.div`
   display    : grid;
   margin     : 0;
-  min-height : 100vh;
-  min-width  : 100vw;
-  grid-template-rows   : 100px 1fr;
+  max-height : 100vh;
+  max-width  : 100vw;
+  grid-template-rows   : 80px 1fr;
   grid-template-columns: 1fr 1fr;
 `;
