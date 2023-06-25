@@ -4,13 +4,13 @@ import { useRecoilState }  from 'recoil';
 import { useDrop }         from 'react-dnd';
 
 import { controllerList, dndItemTypes } from '@/data';
-import { IncludeButtonsAtom }           from '@/recoil/atoms';
+import { SetButtonsStyle }              from '@/recoil/selector';
 import { DraggableBox }                 from './';
 import { Screen }                       from '../screen';
 
 
 export const DroppableScreen = () => {
-  const [ droppedButtons, setDroppedButtons ] = useRecoilState(IncludeButtonsAtom);
+  const [ droppedButtons, setDroppedButtons ] = useRecoilState(SetButtonsStyle);
   const [ includePosition, setIncludePosition]= useState({ left: 0, top : 0 });
 
   const [, drop] = useDrop(

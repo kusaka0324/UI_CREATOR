@@ -4,13 +4,14 @@ import CodeMirror         from '@uiw/react-codemirror';
 import { vscodeDark }     from '@uiw/codemirror-theme-vscode';
 import { html }           from '@codemirror/lang-html';
 
-import { EditByHtmlAtom } from '@/recoil/atoms';
+import { HtmlFormatSelector } from '@/recoil/selector';
 
 export const EditHtml = () => {    
-  const [ htmlCode, setHtmlCode ] = useRecoilState(EditByHtmlAtom);
+  const [ htmlCode, setHtmlCode ] = useRecoilState(HtmlFormatSelector);
   const handleChange = (editor, data, value) => {
     setHtmlCode(value);
   };
+  
   return (
 		<CodeMirror
 			value     = { htmlCode }
