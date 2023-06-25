@@ -1,1 +1,1 @@
-export * from './ScreenLayout';
+export * from './Screen';
