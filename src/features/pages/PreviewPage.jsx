@@ -4,7 +4,7 @@ import { useRecoilValue } from 'recoil';
 import SendIcon           from '@mui/icons-material/Send';
 
 import { Screen }                         from '../screen';
-import { SidebarMenuList }                from '@/components/Layouts'
+import { SidebarMenuList }                from '@/components/Layouts';
 import { Header, Sidebar, Topber }        from '@/components/ui';
 import { postCustom }                     from '../preview';
 import { EditByCssAtom, ScreenStateAtom } from '@/recoil/atoms';
@@ -23,7 +23,7 @@ export const PreviewPage = () => {
 
   const handlePostCustom= () => {
     preventDefault();
-    {postCustom(JSON.stringify(postData))}
+    {console.log(postCustom(JSON.stringify(postData)))}
   }
 
   return (
@@ -31,13 +31,15 @@ export const PreviewPage = () => {
       <Topber />
       <ScreenLayout>
         <Sidebar menuList={SidebarMenuList} />
-        <Header title={'Preview'} subTitle={'作成したUIを設定しよう'} />
         <ContentDiv>
-          <Screen />
-          <ApplyButton onSubmit={handlePostCustom} >
-            <label>Apply</label>
-            <SendIcon />
-          </ApplyButton>
+          <Header title={'Preview'} subTitle={'作成したUIを設定しよう'} />
+          <PreviewWrapper>
+            <Screen mode={'preview'} />
+            <ApplyButton onSubmit={handlePostCustom} >
+              <label>Apply</label>
+              <SendIcon />
+            </ApplyButton>            
+          </PreviewWrapper>
         </ContentDiv>
       </ScreenLayout>      
     </PreviewLayout>
@@ -51,16 +53,24 @@ const PreviewLayout= styled.div`
 
 const ScreenLayout= styled.div`
   display: flex;
-  height : calc(100vh - 100px);
+  padding: 1rem;
+  height : calc(100vh - 80px);
   width  : 100%;
 
 `;
 
 const ContentDiv= styled.div`
+  margin-left: 0.75rem;
+  height     : 100%;
+  width      : 100%;
+`;
+
+const PreviewWrapper= styled.div`
   display        : flex;
-  flex-direction : column;
-  align-items    : center;
   justify-content: center;
+  align-items    : center;
+  height         : calc(100% - 8rem);
+  width          : 100%;
 `;
 
 const ApplyButton= styled.button`
