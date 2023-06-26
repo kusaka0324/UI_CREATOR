@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 export const Screen = ({ buttonsStyle, mode, children}) => {
   return (
     <ScreenStyle mode={mode} >
-        <ScreenContent mode={mode} >
+        <ScreenContent >
           { children }
         </ScreenContent>        
     </ScreenStyle>
@@ -19,12 +19,14 @@ const ScreenStyle = styled.div`
   ${(props)=> 
     props.mode === 'preview' 
     ? css`
-        height : 36rem;
-        width  : 67rem;       
+        padding: 15px 30px 15px 30px;
+        height : 50vh;
+        width  : 100vh;       
       `
     : css`
-        height : 21rem;
-        width  : 42rem;       
+        padding: 10px 20px 10px 20px;
+        height : 30vh;
+        width  : 60vh;       
     `
     };
 `;
@@ -36,17 +38,6 @@ const ScreenContent = styled.div`
   background   : #f0efef;
   border-radius: 30px;
   transform    : translate(-50%, -50%);
-  height       : 19rem;
-  width        : 38rem;
-  ${(props)=> 
-    props.mode === 'preview' 
-    ? css`
-        height : 34rem;
-        width  : 60rem;       
-      `
-    : css`
-        height : 19rem;
-        width  : 38rem;       
-    `
-    };
+  height       : 100%;
+  width        : 100%;
 `;
