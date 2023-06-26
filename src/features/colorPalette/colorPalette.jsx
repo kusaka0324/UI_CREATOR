@@ -7,7 +7,15 @@ export const ColorPalette = () => {
 
   return(
     <div>
-      <ColorPicker width={350} height={150} color={color} onChange={setColor} hideHSV dark />      
+      <ColorPicker 
+        width={250} 
+        height={150} 
+        color={color} 
+        onChange={setColor} 
+        hideHSV 
+        hideRGB
+        dark 
+      />      
     </div>
   );
 }
