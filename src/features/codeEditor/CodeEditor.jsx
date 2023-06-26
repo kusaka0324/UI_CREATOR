@@ -1,25 +1,26 @@
-import React, { useState }      from 'react';     
-import styled,{ css }           from 'styled-components';
-import StyleIcon                from '@mui/icons-material/Style';
-import ClearIcon                from '@mui/icons-material/Clear';
-import FormatIndentIncreaseIcon from '@mui/icons-material/FormatIndentIncrease';
-import ColorLensIcon            from '@mui/icons-material/ColorLens';
+import React, { useState } from 'react';     
+import styled,{ css }      from 'styled-components';
+import StyleIcon           from '@mui/icons-material/Style';
+import ClearIcon           from '@mui/icons-material/Clear';
+import ColorLensIcon       from '@mui/icons-material/ColorLens';
+import SaveAsIcon          from '@mui/icons-material/SaveAs';
 
 import { EditHtml, EditCss } from './Editcode';
 import { SelectCssProps }    from './properties';
 import { Header }            from '@/components/ui';
+import { ColorPalette } from '../colorPalette';
 
 export const CodeEditor = () => {
   const [ activeTab, setActiveTab ]         = useState('css');
-  const [ isDrawerOpen, setIsDrawerOpen ]   = useState(false);
-  const [ isColorPallete, setIsColorPallete]= useState(false);
+  // const [ isDrawerOpen, setIsDrawerOpen ]   = useState(false);
+  const [ isColorPallete, setIsColorPallete]= useState(true);
 
   const handleClick= (tabName) => {
     setActiveTab(tabName);
   };
 
   const handleIsOpen= () => {
-    setIsDrawerOpen(!isDrawerOpen);
+    setIsColorPallete(!isColorPallete);
   }
 
   return (
@@ -33,25 +34,29 @@ export const CodeEditor = () => {
               <Tab onClick={() => handleClick('html')} active={activeTab==='html'} >{ 'HTML' }</Tab>
               <Tab onClick={() => handleClick('css')}  active={activeTab==='css'}  >{ 'CSS'  }</Tab>
             </TabList>
-            <DrawerIconButton onClick={handleIsOpen} >
-              { isDrawerOpen === false
-                ? <OpenIcon/>
-                : <CloseIcon/>
-              }
-            </DrawerIconButton>
-            <CodeFormatButton >
-              <FormatIndentIncreaseIcon style={{color: '#c2c2c2'}}/>
-            </CodeFormatButton>
-            <ColorPalleteButton >
-              <ColorLensIcon style={{color:'#c2c2c2'}} />
-            </ColorPalleteButton>
+            <OptionDiv>
+              {/* <DrawerIconButton onClick={handleIsOpen} >
+                { isDrawerOpen === false
+                  ? <OpenIcon/>
+                  : <CloseIcon/>
+                }
+              </DrawerIconButton> */}
+              <ColorPalleteButton title='カラーパレット' onClick={handleIsOpen} >
+                <ColorLensIcon style={{color:'#c2c2c2'}} />
+              </ColorPalleteButton>   
+              <SaveButton title='スタイルを保存'>
+                <SaveAsIcon style={{color:'#c2c2c2'}} />
+              </SaveButton>           
+            </OptionDiv>
           </EditorHead>
           <EditArea> 
             <TabPanel>
               { activeTab === 'html' && <EditHtml /> }
               { activeTab === 'css'  && <EditCss /> }                
-            </TabPanel>            
-            {isDrawerOpen=== true && <SelectCssProps/> }
+            </TabPanel>  
+            <OptionPanel >
+              {isColorPallete=== true && <ColorPalette /> }
+            </OptionPanel>          
           </EditArea>
         </Tabs>
       </EditorWrapper>
@@ -72,17 +77,29 @@ const EditorWrapper= styled.section`
   background   : #1c1c1c;
   border-radius: 20px;
 `;
+
 const EditorHead= styled.div`
   position: relative;
   width   : 100%;
-  height  : 3rem;
+  height  : 3.25rem;
+  z-index : 9999;
 `; 
 
+const OptionDiv= styled.div`
+  position  : absolute;
+  display   : flex;
+  column-gap: 5px;
+  top       : 50%;
+  right     : 10px;
+  transform : translateY(-50%);
+  z-index   : 999;
+`;
+
 const EditArea= styled.div`
-  padding   : 0.5rem 0.5rem 0 0.5rem;
-  height    : 100%;
+  height    : calc(100% - 8rem);
   width     : 100%;
   background: #1c1c1c;
+  overflow  : auto;
 `;
 
 const Tabs= styled.div`
@@ -127,69 +144,54 @@ const Tab= styled.li`
 const TabPanel= styled.div`
 
 `;
-
-const DrawerIconButton= styled.button`  
-  position       : absolute;
-  display        : flex;
-  align-items    : center;
-  justify-content: center;
-  top            : 50%;
-  right          : 10px;
-  border         : 0;   
-  width          : 3rem;
-  height         : 3rem;
-  background     : #1E1E1E;
-  border-radius  : 10px;
-  transform      : translateY(-50%);
-  z-index        : 99999;
-
-  &:hover {
-    background: #343434;
-  }
+const OptionPanel= styled.div`
+  position: absolute;
+  right   : 0;
+  top     : 3.25rem;  
 `;
 
-const OpenIcon= styled(StyleIcon)`
-  color: #c2c2c2;
-`;
+// const DrawerIconButton= styled.button`  
+//   display        : flex;
+//   align-items    : center;
+//   justify-content: center;
+//   border         : 0;   
+//   width          : 3rem;
+//   height         : 3rem;
+//   background     : #1E1E1E;
+//   border-radius  : 10px;
+//   z-index        : 99999;
 
-const CloseIcon= styled(ClearIcon)`
-  color: #959595;
-`;
-
-const CodeFormatButton= styled.button`
-  position       : absolute;
-  display        : flex;
-  align-items    : center;
-  justify-content: center;
-  top            : 50%;
-  right          : 40px;
-  border         : 0;   
-  width          : 3rem;
-  height         : 3rem;
-  background     : #1E1E1E;
-  border-radius  : 10px;
-  transform      : translateY(-50%);
-  z-index        : 99999;
-
-  &:hover {
-    background: #343434;
-  }
-`;
+//   &:hover {
+//     background: #343434;
+//   }
+// `;
 
 const ColorPalleteButton= styled.button`
-  position       : absolute;
   display        : flex;
   align-items    : center;
   justify-content: center;
-  top            : 50%;
-  right          : 80px;
   border         : 0;   
   width          : 3rem;
   height         : 3rem;
   background     : #1E1E1E;
   border-radius  : 10px;
-  transform      : translateY(-50%);
-  z-index        : 99999;
+  z-index        : 9999;
+
+  &:hover {
+    background: #343434;
+  }
+`;
+
+const SaveButton= styled.button`
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  border         : 0;   
+  width          : 3rem;
+  height         : 3rem;
+  background     : #1E1E1E;
+  border-radius  : 10px;
+  z-index        : 9999;
 
   &:hover {
     background: #343434;
