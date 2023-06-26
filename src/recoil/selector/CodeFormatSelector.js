@@ -1,42 +1,39 @@
-import React from "react";
-import { selector } from "recoil";
+import { selector } from 'recoil';
+import prettier     from 'prettier/standalone';
+import parserHtml   from 'prettier/parser-html';
+import parserCss    from 'prettier/parser-postcss';
+
 import { EditByCssAtom, EditByHtmlAtom } from "../atoms";
-import prettier        from 'prettier/standalone';
-import parserHtml      from 'prettier/parser-html';
-import parserCss       from 'prettier/parser-css';
 
 export const HtmlFormatSelector= selector({
 	key: 'code-format-html',
 	get: ({get}) => {
-		const [codeByHtml, setCodeByHtml] = React.useState(get(EditByHtmlAtom));
-		
-		const formattedCode = prettier.format(codeByHtml, {
-			parser    : 'html',
+		const prevHtmlState= get(EditByHtmlAtom);
+
+		const formattedHtml = prettier.format(prevHtmlState, {
+			parser    : "html",
 			plugins   : [parserHtml],
 			tabWidth  : 2,
 			printWidth: 50,
-			useTabs   : true
+			useTabs   : true,
 		});
-		setCodeByHtml(formattedCode);
-
-		return codeByHtml;
-	}
+	
+		return formattedHtml;
+	},
 })
 
 export const CssFormatSelector= selector({
 	key: 'code-format-css',
 	get: ({get}) => {
-		const [codeByCss, setCodeByCss] = React.useState(get(EditByCssAtom));
-
-		const formattedCode = prettier.format(codeByCss, {
-			parser    : 'css',
+		const prevCssState= get(EditByCssAtom);
+		const formattedCss = prettier.format(prevCssState, {
+			parser    : "css",
 			plugins   : [parserCss],
 			tabWidth  : 2,
 			printWidth: 50,
 			useTabs   : true,
 		});
-		setCodeByCss(formattedCode);
-
-		return codeByCss;
-	}
+		
+		return formattedCss;
+	},
 });
