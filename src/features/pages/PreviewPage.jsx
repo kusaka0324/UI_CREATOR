@@ -3,10 +3,10 @@ import styled             from 'styled-components';
 import { useRecoilValue } from 'recoil';
 import SendIcon           from '@mui/icons-material/Send';
 
-import { Screen }                         from '../screen';
-import { SidebarMenuList }                from '@/components/Layouts';
-import { Header, Sidebar, Topber }        from '@/components/ui';
-import { postCustom }                     from '../preview';
+import { Screen }                            from '../screen';
+import { SidebarMenuList }                   from '@/components/Layouts';
+import { Header, Sidebar, Topber }           from '@/components/ui';
+import { postCustom }                        from '../preview';
 import { EditByCssAtom, IncludeButtonsAtom } from '@/recoil/atoms';
 
 
@@ -20,8 +20,8 @@ export const PreviewPage = () => {
     css       : editedCss,
   }
 
-  const handlePostCustom= () => {
-   
+  const handlePostCustom= (e) => {
+    e.preventDefault();
     {console.log(JSON.stringify(postData))}
   }
 
