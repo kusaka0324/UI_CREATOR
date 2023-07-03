@@ -1,11 +1,18 @@
 import React  from 'react'
 import styled, { css } from 'styled-components';
 
-export const Screen = ({ buttonsStyle, mode, children}) => {
+import { DroppableScreen } from '../controller';
+import { useRecoilValue } from 'recoil';
+import { MergeCodeSelector } from '@/recoil/selector';
+import { EditByCssAtom } from '@/recoil/atoms';
+
+export const Screen = ({ mode }) => {
+  const mergeHtml= useRecoilValue(MergeCodeSelector);
+
   return (
     <ScreenStyle mode={mode} >
         <ScreenContent >
-          { children }
+          <iframe srcDoc={mergeHtml}></iframe>
         </ScreenContent>        
     </ScreenStyle>
   );
@@ -25,8 +32,8 @@ const ScreenStyle = styled.div`
       `
     : css`
         padding: 10px 20px 10px 20px;
-        height : 30vh;
-        width  : 60vh;       
+        height : 35vh;
+        width  : 70vh;       
     `
     };
 `;
@@ -40,4 +47,11 @@ const ScreenContent = styled.div`
   transform    : translate(-50%, -50%);
   height       : 100%;
   width        : 100%;
+
+  > iframe {
+    width : 100%;
+    height: 100%;
+    border: none;
+    border-radius: 30px;
+  }
 `;
