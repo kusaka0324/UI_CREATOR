@@ -1,19 +1,17 @@
 import React  from 'react';
 import styled from 'styled-components';
 
-import { ContentLayout, MainLayout }     from '@/components/Layouts'
-import { DraggableBox, DroppableScreen } from '../controller'
-import { Header }                        from '@/components/ui';
-import { controllerList }                from '@/data';
-import { Screen }                        from '../screen';
+import { ContentLayout, MainLayout } from '@/components/layouts'
+import { DraggableBox }              from '../controller'
+import { Header }                    from '@/components/ui';
+import { controllerList }            from '@/data';
+import { Screen }                    from '../screen';
 
 export const DisplayButtonsPage = () => {
   return (
     <MainLayout>      
       <PreviewLayout >
-        <Screen>
-          <DroppableScreen />
-        </Screen>
+        <Screen />
       </PreviewLayout>
       <ContentLayout>
         <SelectAreaLayout>
@@ -22,8 +20,8 @@ export const DisplayButtonsPage = () => {
               <OpsSelectArea key={id} >
                 <OpsHeader>{head}</OpsHeader>
                 <OpsList>
-                  {contents.map(({index, id, opsName, Icon, rotate})=>
-                    <OpsItem key={index} >
+                  {contents.map(({id, opsName, Icon, rotate})=>
+                    <OpsItem key={id} >
                       <DraggableBox 
                         id     = {id}
                         opsName= {opsName}
@@ -63,11 +61,13 @@ const SelectAreaLayout= styled.div`
 `;
 
 const OpsSelectArea= styled.section`
-  height       : 100%;
+  position     : relative;
+  margin-bottom: 10px;
+  height       : 15rem;
   width        : 100%;
   background   : #1e1e1e;
   border-radius: 20px;
-  overflow-y   : auto;
+  overflow     : auto;
 `;
 
 const OpsHeader= styled.div`
@@ -76,8 +76,8 @@ const OpsHeader= styled.div`
   display        : flex;
   align-items    : center;
   justify-content: center;
-  width          : 6.25rem;
-  height         : 2.35rem;
+  width          : 85px;
+  height         : 38px;
   font-size      : 16px;
   font-weight    : bold;
   font-family    : 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -99,7 +99,8 @@ const OpsItem= styled.li`
   flex-direction : column;
   align-items    : center;
   justify-content: center;
-  margin         : 1.5rem 0 2.5rem 0;
+  padding-top    : 1.25rem;
+  column-gap     : 2.5rem;
   height         : 100%;
   
   > span {
