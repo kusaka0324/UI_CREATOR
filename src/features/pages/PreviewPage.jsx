@@ -3,21 +3,20 @@ import styled             from 'styled-components';
 import { useRecoilValue } from 'recoil';
 import SendIcon           from '@mui/icons-material/Send';
 
-import { Screen }                            from '../screen';
-import { SidebarMenuList }                   from '@/components/Layouts';
-import { Header, Sidebar, Topber }           from '@/components/ui';
-import { postCustom }                        from '../preview';
-import { EditByCssAtom, IncludeButtonsAtom } from '@/recoil/atoms';
+import { Screen }                               from '../screen';
+import { SidebarMenuList }                      from '@/components/layouts';
+import { Header, Sidebar, Topber }              from '@/components/ui';
+import { EditByCssAtom, IncludeButtonsIdState } from '@/recoil/atoms';
 
 
 export const PreviewPage = () => {
   const editedCss = useRecoilValue(EditByCssAtom);
-  const setButtons= useRecoilValue(IncludeButtonsAtom);
+  const setButtons= useRecoilValue(IncludeButtonsIdState);
 
   const postData= {
     controller: "0",
     button    : setButtons,
-    css       : editedCss,
+    css       : editedCss.replace(/\t?\n/g, ''),
   }
 
   const handlePostCustom= (e) => {
@@ -65,6 +64,7 @@ const ContentDiv= styled.div`
 `;
 
 const PreviewWrapper= styled.div`
+  position       : relative;
   display        : flex;
   flex-direction : column;
   justify-content: center;
