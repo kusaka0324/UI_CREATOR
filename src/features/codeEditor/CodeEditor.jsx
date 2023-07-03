@@ -1,14 +1,12 @@
 import React, { useState } from 'react';     
 import styled,{ css }      from 'styled-components';
-import StyleIcon           from '@mui/icons-material/Style';
-import ClearIcon           from '@mui/icons-material/Clear';
 import ColorLensIcon       from '@mui/icons-material/ColorLens';
-import SaveAsIcon          from '@mui/icons-material/SaveAs';
 
-import { EditHtml, EditCss } from './Editcode';
+import { EditHtml, EditCss } from './edit-code';
 import { SelectCssProps }    from './properties';
 import { Header }            from '@/components/ui';
-import { ColorPalette } from '../colorPalette';
+import { ColorPalette }      from '../colorPalette';
+import { SaveButton } from './save-code';
 
 export const CodeEditor = () => {
   const [ activeTab, setActiveTab ]         = useState('css');
@@ -44,9 +42,7 @@ export const CodeEditor = () => {
               <ColorPalleteButton title='カラーパレット' onClick={handleIsOpen} >
                 <ColorLensIcon style={{color:'#c2c2c2'}} />
               </ColorPalleteButton>   
-              <SaveButton title='スタイルを保存'>
-                <SaveAsIcon style={{color:'#c2c2c2'}} />
-              </SaveButton>           
+              
             </OptionDiv>
           </EditorHead>
           <EditArea> 
@@ -59,6 +55,9 @@ export const CodeEditor = () => {
             </OptionPanel>          
           </EditArea>
         </Tabs>
+        <EditorFoot>
+          <SaveButton />
+        </EditorFoot>
       </EditorWrapper>
     </EditorLayout>
   );
@@ -96,7 +95,7 @@ const OptionDiv= styled.div`
 `;
 
 const EditArea= styled.div`
-  height    : calc(100% - 8rem);
+  height    : calc(100vh - 20rem);
   width     : 100%;
   background: #1c1c1c;
   overflow  : auto;
@@ -182,18 +181,13 @@ const ColorPalleteButton= styled.button`
   }
 `;
 
-const SaveButton= styled.button`
-  display        : flex;
-  align-items    : center;
-  justify-content: center;
-  border         : 0;   
-  width          : 3rem;
-  height         : 3rem;
-  background     : #1E1E1E;
-  border-radius  : 10px;
-  z-index        : 9999;
-
-  &:hover {
-    background: #343434;
-  }
+const EditorFoot=styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  height: 4.5rem;
+  width: 100%;
 `;
