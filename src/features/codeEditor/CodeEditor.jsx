@@ -6,7 +6,6 @@ import { EditHtml, EditCss } from './edit-code';
 import { SelectCssProps }    from './properties';
 import { Header }            from '@/components/ui';
 import { ColorPalette }      from '../colorPalette';
-import { SaveButton } from './save-code';
 
 export const CodeEditor = () => {
   const [ activeTab, setActiveTab ]         = useState('css');
@@ -55,9 +54,6 @@ export const CodeEditor = () => {
             </OptionPanel>          
           </EditArea>
         </Tabs>
-        <EditorFoot>
-          <SaveButton />
-        </EditorFoot>
       </EditorWrapper>
     </EditorLayout>
   );
@@ -179,15 +175,4 @@ const ColorPalleteButton= styled.button`
   &:hover {
     background: #343434;
   }
-`;
-
-const EditorFoot=styled.div`
-  position: absolute;
-  bottom: 0;
-  right: 10px;
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  height: 4.5rem;
-  width: 100%;
 `;
