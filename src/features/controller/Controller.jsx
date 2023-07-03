@@ -1,4 +1,5 @@
 import React  from 'react';
+import { useRecoilValue } from 'recoil';
 import styled, {css} from 'styled-components';
 
 export const Controller= ({ left, top, Icon, rotate }) => {
@@ -13,8 +14,8 @@ const BoxStyle= styled.div`
   display        : flex;
   justify-content: center;
   align-items    : center;
-  width          : 4.5rem;
-  height         : 4.5rem;
+  width          : 60px;
+  height         : 60px;
   border         : 0;
   outline        : 0;
   background     : #d4d4d4;
