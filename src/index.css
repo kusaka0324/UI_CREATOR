@@ -9,17 +9,17 @@ html {
 }
 @media screen and (min-width: 1024px) {
   html {
-    font-size: 16px;
+    font-size: 12px;
   }
 }
 @media screen and (min-width:1280px) {
   html {
-    font-size: 15px;
+    font-size: 13px;
   }
 }
 @media screen and (min-width: 1440px) {
   html {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 
