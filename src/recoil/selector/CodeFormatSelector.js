@@ -10,39 +10,42 @@ export const HtmlFormatSelector= selector({
 	key: 'code-format-html',
 	get: ({get}) => {
 		const prevHtmlState= get(DroppedAddTags);
+	
+			const formattedHtml = prettier.format(prevHtmlState, {
+				parser    : "html",
+				plugins   : [parserHtml],
+				tabWidth  : 2,
+				printWidth: 200,
+				useTabs   : false,
+				jsxBracketSameLine: false,
+			});
 
-		const formattedHtml = prettier.format(prevHtmlState, {
-			parser    : "html",
-			plugins   : [parserHtml],
-			tabWidth  : 2,
-			printWidth: 50,
-			useTabs   : true,
-		});
-
-		return formattedHtml;
+			return formattedHtml;			
 	},
+	set: ({set}, newHtmlState) => {
+		set(EditByHtmlAtom, newHtmlState)
+	}
 })
 
 export const CssFormatSelector= selector({
 	key: 'code-format-css',
 	get: ({get}) => {
-		const prevCssState= get(DroppedAddClass);
+		const addedClasses= get(DroppedAddClass);
+		const prevCssState= get(EditByCssAtom);
+
+		let newCssState= addedClasses;
 		try {
-			const formattedCss = prettier.format(prevCssState, {
+			const formattedCss = prettier.format(newCssState, {
 				parser    : "css",
 				plugins   : [parserCss],
 				tabWidth  : 2,
-				printWidth: 50,
+				printWidth: 200,
 				useTabs   : false,
 			});
-			
 			return formattedCss;			
 		}
 		catch(error) {
 			console.log('error');
-		}
-		finally {
-			return prevCssState;
 		}
 	},
 	set: ({set}, newCssState) => {
