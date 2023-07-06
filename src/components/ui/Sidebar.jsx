@@ -1,22 +1,49 @@
 import React          from 'react';
 import styled,{ css } from 'styled-components';
 import { NavLink }    from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import CodeIcon       from '@mui/icons-material/Code';
+import GridViewIcon   from '@mui/icons-material/GridView';
+import SmartphoneIcon from '@mui/icons-material/Smartphone';
 
-export const Sidebar = ({menuList}) => {
-  const [ activePage, setActivePage ] = React.useState('Buttons');
+import { ActivePageState } from '@/recoil/atoms';
 
-  function handleButtonClick(title) {
+const SidebarMenuList= [
+	{
+		id   : 0,
+		title: 'Buttons',
+		path : '/',
+		icon : <GridViewIcon />,
+	},
+	{
+		id   : 1,
+		title: 'Code',
+		path : '/code_edit',
+		icon : <CodeIcon />
+	},
+	{
+		id   : 2,
+		title: 'Preview',
+		path : '/preview',
+		icon : <SmartphoneIcon />
+	},
+];
+
+export const Sidebar = () => {
+  const [ activePage, setActivePage ] = useRecoilState(ActivePageState);
+
+  function handleButtonClick(title) { 
     setActivePage(title);
   }
   
   return (
     <Navigation >
       <NavList >
-        {menuList.map(({ id, title, path, icon }) => (
+        {SidebarMenuList.map(({ id, title, path, icon }) => (
           <NavItemStyleDiv key={id} >   
             <NavItem 
-              to={path} 
-              active = {activePage == title }
+              to     = {path} 
+              active = {activePage === title }
               onClick= {() => handleButtonClick(title)}
             >
               {icon}
