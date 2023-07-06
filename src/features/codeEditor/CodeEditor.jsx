@@ -5,20 +5,14 @@ import ColorLensIcon       from '@mui/icons-material/ColorLens';
 import { EditHtml, EditCss } from './edit-code';
 import { SelectCssProps }    from './properties';
 import { Header }            from '@/components/ui';
-import { ColorPalette }      from '../colorPalette';
 
 export const CodeEditor = () => {
-  const [ activeTab, setActiveTab ]         = useState('css');
+  const [ activeTab, setActiveTab ]= useState('css');
   // const [ isDrawerOpen, setIsDrawerOpen ]   = useState(false);
-  const [ isColorPallete, setIsColorPallete]= useState(true);
 
   const handleClick= (tabName) => {
     setActiveTab(tabName);
   };
-
-  const handleIsOpen= () => {
-    setIsColorPallete(!isColorPallete);
-  }
 
   return (
     <EditorLayout>
@@ -38,10 +32,6 @@ export const CodeEditor = () => {
                   : <CloseIcon/>
                 }
               </DrawerIconButton> */}
-              <ColorPalleteButton title='カラーパレット' onClick={handleIsOpen} >
-                <ColorLensIcon style={{color:'#c2c2c2'}} />
-              </ColorPalleteButton>   
-              
             </OptionDiv>
           </EditorHead>
           <EditArea> 
@@ -49,9 +39,6 @@ export const CodeEditor = () => {
               { activeTab === 'html' && <EditHtml /> }
               { activeTab === 'css'  && <EditCss /> }                
             </TabPanel>  
-            <OptionPanel >
-              {isColorPallete=== true && <ColorPalette /> }
-            </OptionPanel>          
           </EditArea>
         </Tabs>
       </EditorWrapper>
@@ -139,12 +126,6 @@ const Tab= styled.li`
 const TabPanel= styled.div`
 
 `;
-const OptionPanel= styled.div`
-  position: absolute;
-  right   : 0;
-  top     : 3.25rem;  
-`;
-
 // const DrawerIconButton= styled.button`  
 //   display        : flex;
 //   align-items    : center;
@@ -160,19 +141,3 @@ const OptionPanel= styled.div`
 //     background: #343434;
 //   }
 // `;
-
-const ColorPalleteButton= styled.button`
-  display        : flex;
-  align-items    : center;
-  justify-content: center;
-  border         : 0;   
-  width          : 3rem;
-  height         : 3rem;
-  background     : #1E1E1E;
-  border-radius  : 10px;
-  z-index        : 9999;
-
-  &:hover {
-    background: #343434;
-  }
-`;
