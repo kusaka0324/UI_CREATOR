@@ -33,9 +33,8 @@ export const CssFormatSelector= selector({
 		const addedClasses= get(DroppedAddClass);
 		const prevCssState= get(EditByCssAtom);
 
-		let newCssState= addedClasses;
 		try {
-			const formattedCss = prettier.format(newCssState, {
+			const formattedCss = prettier.format(addedClasses, {
 				parser    : "css",
 				plugins   : [parserCss],
 				tabWidth  : 2,

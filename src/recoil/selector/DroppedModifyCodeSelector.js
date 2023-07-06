@@ -8,7 +8,6 @@ export const DroppedAddClass= selector({
 	key: 'add-class',
 	get: ({get}) => {
 		const droppedButtonsId= get(IncludeButtonsIdState);
-		const prevCssState    = get(EditByCssAtom);
 		let newClasses = '';
 		
 		{ cssStyle
@@ -25,7 +24,6 @@ export const DroppedAddTags= selector({
 	key: 'add-tag',
 	get: ({get}) => {
 		const droppedButtonsId= get(IncludeButtonsIdState);
-		const prevHtmlState   = get(EditByHtmlAtom);
 		let newTags = '';
 		{ controllerList.map(({contents}) => (
 			contents
@@ -35,6 +33,7 @@ export const DroppedAddTags= selector({
 				))
 			)
 		}
-		return prevHtmlState.replace('<body></body>', `<body>${newTags}</body>`);
+		return newTags;
+		// return prevHtmlState.replace('<body></body>', `<body>${newTags}</body>`);
 	}
 })
