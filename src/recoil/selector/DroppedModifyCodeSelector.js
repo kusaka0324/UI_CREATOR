@@ -2,22 +2,22 @@ import { selector } from 'recoil';
 
 import { EditByCssAtom, EditByHtmlAtom, IncludeButtonsIdState } from '../atoms';
 import { controllerList } from '@/data';
+import { cssStyle } from '@/data';
 
 export const DroppedAddClass= selector({
 	key: 'add-class',
 	get: ({get}) => {
 		const droppedButtonsId= get(IncludeButtonsIdState);
-		const prevCssState= get(EditByCssAtom);
+		const prevCssState    = get(EditByCssAtom);
 		let newClasses = '';
-		{ controllerList.map(({contents}) => (
-			contents
+		
+		{ cssStyle
 				.filter(({id}) => droppedButtonsId.includes(id))
-				.map(({className})=> 
-					newClasses+= `\n#${className}{\n}`
-				))
-			)
+				.map(({defaultStyle})=> 
+					newClasses+= `${defaultStyle}`
+				)
 		}
-		return prevCssState+newClasses;
+		return newClasses;
 	},
 });
 
@@ -30,8 +30,8 @@ export const DroppedAddTags= selector({
 		{ controllerList.map(({contents}) => (
 			contents
 				.filter(({id}) => droppedButtonsId.includes(id))
-				.map(({className})=> 
-					newTags+= `<button id="${className}"></button>`
+				.map(({className, svgIconTag})=> 
+					newTags+= `<button id="${className}"><span>${svgIconTag.replace(/'/g, '')}</span></button>\n`
 				))
 			)
 		}
