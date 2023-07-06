@@ -4,19 +4,20 @@ import { useRecoilValue } from 'recoil';
 import SendIcon           from '@mui/icons-material/Send';
 
 import { Screen }                               from '../screen';
-import { SidebarMenuList }                      from '@/components/layouts';
-import { Header, Sidebar, Topber }              from '@/components/ui';
+import { Header, SelectBox, Sidebar, Topber }   from '@/components/ui';
 import { EditByCssAtom, IncludeButtonsIdState } from '@/recoil/atoms';
-
+import { SelectedControllerState } from '@/recoil/atoms/SelectedControllerState';
+import { defaultCss } from '@/data';
 
 export const PreviewPage = () => {
+  const selectedController= useRecoilValue(SelectedControllerState);
   const editedCss = useRecoilValue(EditByCssAtom);
   const setButtons= useRecoilValue(IncludeButtonsIdState);
 
   const postData= {
-    controller: "0",
+    controller: selectedController,
     button    : setButtons,
-    css       : editedCss.replace(/\t?\n/g, ''),
+    css       : defaultCss.replace(/\t?\n/g, '')+editedCss.replace(/\t?\n/g, ''),
   }
 
   const handlePostCustom= (e) => {
@@ -28,10 +29,11 @@ export const PreviewPage = () => {
     <PreviewLayout>
       <Topber />
       <ScreenLayout>
-        <Sidebar menuList={SidebarMenuList} />
+        <Sidebar />
         <ContentDiv>
           <Header title={'Preview'} subTitle={'作成したUIを設定しよう'} />
           <PreviewWrapper>
+            <SelectBox/>
             <Screen mode={'preview'} />
             <ApplyButton type='submit' onClick={handlePostCustom} >
               <label>Apply</label>
