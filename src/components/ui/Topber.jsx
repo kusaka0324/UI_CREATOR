@@ -7,7 +7,7 @@ export const Topber = () => {
   return (
     <HeaderStyle>
       <HeaderTitle>
-        <img src={logo}/>
+        <img src={logo} />
       </HeaderTitle>
     </HeaderStyle>
   )
@@ -25,13 +25,15 @@ const HeaderStyle =styled.header`
 
 const HeaderTitle = styled.div`
   position   : absolute;
-  top        : 50%;  
-  transform  : translateY(-50%);
+  top        : 50%;   
   left       : 2.75rem;
-  line-height: 100px;
-  > img {
-    height: 80px;
-    display: flex;
+  line-height: 100px; 
+  transform  : translateY(-50%);
+
+  > img {    
+    display    : flex;
     align-items: center;
+    height     : 80px;
+
   }
 `;

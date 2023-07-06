@@ -1,2 +1,3 @@
-export * from './CodeFormatSelector'
-export * from './SetButtonsStyleSelector';
+export * from './CodeFormatSelector';
+export * from './DroppedModifyCodeSelector';
+export * from './MergeCodeSelector';

@@ -1,19 +1,16 @@
 import React                         from 'react';
 import styled                        from 'styled-components';
-import { EditByCssAtom }             from '@/recoil/atoms';
 
-import { MainLayout, ContentLayout } from '@/components/Layouts'
+import { MainLayout, ContentLayout } from '@/components/layouts'
 import { CodeEditor }                from '../codeEditor'
 import { Screen }                    from '../screen'
-import { useRecoilValue }            from 'recoil';
 
 export const CodeEditPage = () => {
-  const buttonsStyle= useRecoilValue(EditByCssAtom);
 
   return (
     <MainLayout>      
       <PreviewLayout >
-        <Screen buttonsStyle={buttonsStyle}></Screen>
+        <Screen />
       </PreviewLayout>
       <ContentLayout>
         <CodeEditor/>
