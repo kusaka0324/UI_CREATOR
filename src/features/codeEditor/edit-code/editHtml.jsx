@@ -8,16 +8,16 @@ import { HtmlFormatSelector } from '@/recoil/selector';
 
 export const EditHtml = () => {    
   const [ htmlCode, setHtmlCode ] = useRecoilState(HtmlFormatSelector);
-  const handleChange = (editor, data, value) => {
+  const handleChange = (value) => {
     setHtmlCode(value);
   };
   
   return (
 		<CodeMirror
 			value     = { htmlCode }
+      onChange  = { handleChange }
       theme     = { vscodeDark }
       extensions= { html() }
-      readOnly  = 'true'
     />
   );
 }
