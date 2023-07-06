@@ -2,7 +2,7 @@ import { selector } from "recoil";
 import { EditByCssAtom, EditByHtmlAtom } from "../atoms";
 
 export const MergeCodeSelector= selector({
-  key: 'merge-html-css',
+	key: 'merge-html-css',
 	get: ({get}) => {
 		const htmlState= get(EditByHtmlAtom);
 		const cssState = get(EditByCssAtom);
