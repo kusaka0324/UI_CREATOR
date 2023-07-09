@@ -6,6 +6,7 @@ import { DraggableBox }              from '../controller'
 import { Header }                    from '@/components/ui';
 import { controllerList }            from '@/data';
 import { Screen }                    from '../screen';
+import { ButtonsSelectForm } from '@/components/ui/ButtonsSelectForm';
 
 export const DisplayButtonsPage = () => {
   return (
@@ -16,7 +17,8 @@ export const DisplayButtonsPage = () => {
       <ContentLayout>
         <SelectAreaLayout>
           <Header title={'Buttons'} subTitle={'操作ボタンを配置しよう'} />
-            { controllerList.map(({id, head, contents}) => (
+          <ButtonsSelectForm />
+            {/* { controllerList.map(({id, head, contents}) => (
               <OpsSelectArea key={id} >
                 <OpsHeader>{head}</OpsHeader>
                 <OpsList>
@@ -33,7 +35,7 @@ export const DisplayButtonsPage = () => {
                   )}
                 </OpsList>
               </OpsSelectArea>
-            ))}        
+            ))}         */}
         </SelectAreaLayout>
       </ContentLayout>
     </MainLayout>
