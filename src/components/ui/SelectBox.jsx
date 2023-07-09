@@ -22,10 +22,10 @@ export const SelectBox = () => {
 }
 
 const SelectBoxStyle= styled.select`
-	height       : 50px;
+	height       : 40px;
 	width        : 200px;
 	text-align   : center;
-	font-size    : 1rem;
+	font-size    : 1.25rem;
 	border-radius: 10px;
 	border       : 1px solid #bebebe;
 `;
