@@ -18,24 +18,24 @@ for (let i = 0; i < button.length; i++) {
   if (buttonElements[i] !== null) {
     if (i < 5) {
       buttonElements[i].addEventListener("touchstart", function () {
-        toggleButton(controller, i);
+        toggleButton(controller, i, 1);
       });
       buttonElements[i].addEventListener("touchend", function () {
-        toggleButton(controller, i);
+        toggleButton(controller, i, 0);
       });
     } else {
       buttonElements[i].addEventListener("touchstart", function () {
-        toggleButton(controller, i - 5);
-        toggleButton(controller, -1 * i + 8);
+        toggleButton(controller, i - 5, 1);
+        toggleButton(controller, -1 * i + 8, 1);
       });
       buttonElements[i].addEventListener("touchend", function () {
-        toggleButton(controller, i - 5);
-        toggleButton(controller, -1 * i + 8);
+        toggleButton(controller, i - 5, 0);
+        toggleButton(controller, -1 * i + 8, 0);
       });
     }
   }
 }
 
-function toggleButton(controller, button) {
-  fetch(API_URL + "?controller=" + controller + "&button=" + button);
+function toggleButton(controller, button, status) {
+  fetch(API_URL + "?controller=" + controller + "&button=" + button + "&status=" + status);
 }
