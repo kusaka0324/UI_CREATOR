@@ -6,18 +6,17 @@ import { html }           from '@codemirror/lang-html';
 
 import { HtmlFormatSelector } from '@/recoil/selector';
 import { defaultHtml } from '@/data';
+
 export const EditHtml = () => {    
   const [ htmlCode, setHtmlCode ] = useRecoilState(HtmlFormatSelector);
-  const handleChange = (value) => {
-    setHtmlCode(value.replace(defaultHtml,'').replace('<body></body>', `<body>${htmlCode}</body>`));
-  };
   
   return (
 		<CodeMirror
-			value     = { defaultHtml+htmlCode }
+			value     = { defaultHtml.replace('<body></body>', `<body>\n${htmlCode}</body>`) }
       onChange  = { handleChange }
       theme     = { vscodeDark }
       extensions= { html() }
+      readOnly  = { true }
     />
   );
 }
