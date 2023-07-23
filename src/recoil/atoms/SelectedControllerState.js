@@ -1,6 +1,6 @@
 import { atom } from "recoil";
 
 export const SelectedControllerState= atom({
-  key: 'controller-id',
-	default: '0'
+  key: 'selected-controller-id',
+	default: '0',
 })
