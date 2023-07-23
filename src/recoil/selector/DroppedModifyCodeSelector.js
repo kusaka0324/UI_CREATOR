@@ -18,6 +18,17 @@ export const DroppedAddClass= selector({
 		}
 		return newClasses;
 	},
+	set: ({set}, droppedButtonsId) => {
+		let newClasses = '';
+		
+		{ cssStyle
+			.filter(({id}) => droppedButtonsId.includes(id))
+			.map(({defaultStyle})=> 
+				newClasses+= `${defaultStyle}`
+			)
+		}
+		set(EditByCssAtom, newClasses);
+	}
 });
 
 export const DroppedAddTags= selector({
@@ -34,6 +45,17 @@ export const DroppedAddTags= selector({
 			)
 		}
 		return newTags;
-		// return prevHtmlState.replace('<body></body>', `<body>${newTags}</body>`);
+	},
+	set: ({set}, droppedButtonsId) => {
+		let newTags = '';
+		{ controllerList.map(({contents}) => (
+			contents
+				.filter(({id}) => droppedButtonsId.includes(id))
+				.map(({className, svgIconTag})=> 
+					newTags+= `<button id="${className}"><span>${svgIconTag.replace(/'/g, '')}</span></button>\n`
+				))
+			)
+		}
+		set(EditByHtmlAtom,newTags);
 	}
 })
