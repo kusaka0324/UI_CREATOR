@@ -38,8 +38,8 @@ def serveStatic(path):
 
 @blueprint.route("/change-status", methods=["GET"])
 def ChangeStatus():
-    status[int(request.args.get("controller"))]["button"][int(request.args.get(
-        "button"))] = not status[int(request.args.get("controller"))]["button"][int(request.args.get("button"))]
+    status[int(request.args.get("controller"))]["button"][int(
+        request.args.get("button"))] = bool(int(request.args.get("status")))
     return Response(status=204)
 
 
