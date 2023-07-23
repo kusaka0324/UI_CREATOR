@@ -1,14 +1,11 @@
 import React, { useState } from 'react';     
 import styled,{ css }      from 'styled-components';
-import ColorLensIcon       from '@mui/icons-material/ColorLens';
 
 import { EditHtml, EditCss } from './edit-code';
-import { SelectCssProps }    from './properties';
 import { Header }            from '@/components/ui';
 
 export const CodeEditor = () => {
   const [ activeTab, setActiveTab ]= useState('css');
-  // const [ isDrawerOpen, setIsDrawerOpen ]   = useState(false);
 
   const handleClick= (tabName) => {
     setActiveTab(tabName);
@@ -26,12 +23,6 @@ export const CodeEditor = () => {
               <Tab onClick={() => handleClick('css')}  active={activeTab==='css'}  >{ 'CSS'  }</Tab>
             </TabList>
             <OptionDiv>
-              {/* <DrawerIconButton onClick={handleIsOpen} >
-                { isDrawerOpen === false
-                  ? <OpenIcon/>
-                  : <CloseIcon/>
-                }
-              </DrawerIconButton> */}
             </OptionDiv>
           </EditorHead>
           <EditArea> 
@@ -126,18 +117,3 @@ const Tab= styled.li`
 const TabPanel= styled.div`
 
 `;
-// const DrawerIconButton= styled.button`  
-//   display        : flex;
-//   align-items    : center;
-//   justify-content: center;
-//   border         : 0;   
-//   width          : 3rem;
-//   height         : 3rem;
-//   background     : #1E1E1E;
-//   border-radius  : 10px;
-//   z-index        : 99999;
-
-//   &:hover {
-//     background: #343434;
-//   }
-// `;

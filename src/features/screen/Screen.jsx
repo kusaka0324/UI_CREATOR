@@ -1,7 +1,5 @@
 import React           from 'react'
 import styled, { css } from 'styled-components';
-
-import { DroppableScreen }   from '../controller';
 import { useRecoilValue }    from 'recoil';
 import { MergeCodeSelector } from '@/recoil/selector';
 
@@ -11,8 +9,7 @@ export const Screen = ({ mode }) => {
   return (
     <ScreenStyle mode={mode} >
         <ScreenContent >
-          <DroppableScreen />
-          <iframe srcDoc={mergeHtml} />
+          <iframe srcDoc={mergeHtml}/>
         </ScreenContent>        
     </ScreenStyle>
   );
@@ -27,8 +24,8 @@ const ScreenStyle = styled.div`
     props.mode === 'preview' 
     ? css`
         padding: 10px 40px 10px 40px;
-        height : 60vh;
-        width  : 120vh;       
+        height : 50vh;
+        width  : 100vh;       
       `
     : css`
         padding: 10px 30px 10px 30px;

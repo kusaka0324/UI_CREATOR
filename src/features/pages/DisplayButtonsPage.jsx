@@ -2,11 +2,9 @@ import React  from 'react';
 import styled from 'styled-components';
 
 import { ContentLayout, MainLayout } from '@/components/layouts'
-import { DraggableBox }              from '../controller'
 import { Header }                    from '@/components/ui';
-import { controllerList }            from '@/data';
 import { Screen }                    from '../screen';
-import { ButtonsSelectForm } from '@/components/ui/ButtonsSelectForm';
+import { ButtonsSelectForm } from '@/features/controller/ButtonsSelectForm';
 
 export const DisplayButtonsPage = () => {
   return (
@@ -18,24 +16,6 @@ export const DisplayButtonsPage = () => {
         <SelectAreaLayout>
           <Header title={'Buttons'} subTitle={'操作ボタンを配置しよう'} />
           <ButtonsSelectForm />
-            {/* { controllerList.map(({id, head, contents}) => (
-              <OpsSelectArea key={id} >
-                <OpsHeader>{head}</OpsHeader>
-                <OpsList>
-                  {contents.map(({id, opsName, Icon, rotate})=>
-                    <OpsItem key={id} >
-                      <DraggableBox 
-                        id     = {id}
-                        opsName= {opsName}
-                        Icon   = {Icon}
-                        rotate = {rotate}
-                      />        
-                      <span>{opsName}</span>
-                    </OpsItem>
-                  )}
-                </OpsList>
-              </OpsSelectArea>
-            ))}         */}
         </SelectAreaLayout>
       </ContentLayout>
     </MainLayout>
