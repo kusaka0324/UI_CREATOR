@@ -5,37 +5,37 @@ export const SelectedButtonsState= atom({
   default: [
     {
       id: 0,
-      label   : 'leftForward', 
+      label   : 'LeftForward', 
       selected: false,
     },
     {
       id: 1,
-      label   : 'leftReverse', 
+      label   : 'LeftReverse', 
       selected: false,
     },
     {
       id: 2,
-      label   : 'rightForward',
+      label   : 'RightForward',
       selected: false,
     },    
     {
       id: 3,
-      label   : 'rightReverse',
+      label   : 'RightReverse',
       selected: false,
     },
     {
       id: 5,
-      label   : 'rightTurn',
+      label   : 'RightTurn',
       selected: false,
     },
     {
       id: 6,
-      label   : 'leftTurn',
+      label   : 'LeftTurn',
       selected: false,
     },
     {
       id: 4,
-      label   : 'speedBoost',
+      label   : 'SpeedBoost',
       selected: false,
     },
   ]
