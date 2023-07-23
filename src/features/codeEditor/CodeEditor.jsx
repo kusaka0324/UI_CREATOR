@@ -22,8 +22,6 @@ export const CodeEditor = () => {
               <Tab onClick={() => handleClick('html')} active={activeTab==='html'} >{ 'HTML' }</Tab>
               <Tab onClick={() => handleClick('css')}  active={activeTab==='css'}  >{ 'CSS'  }</Tab>
             </TabList>
-            <OptionDiv>
-            </OptionDiv>
           </EditorHead>
           <EditArea> 
             <TabPanel>
@@ -63,7 +61,7 @@ const OptionDiv= styled.div`
   display   : flex;
   column-gap: 5px;
   top       : 50%;
-  right     : 10px;
+  right     : 20px;
   transform : translateY(-50%);
   z-index   : 999;
 `;

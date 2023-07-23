@@ -1,15 +1,15 @@
-import { EditByCssAtom, IncludeButtonsIdState, SelectedButtonsState } from "@/recoil/atoms";
-import { CssFormatSelector, DroppedAddClass, DroppedAddTags, HtmlFormatSelector, SelectedItemSelector } from "@/recoil/selector";
+import { IncludeButtonsIdState, SelectedButtonsState } from "@/recoil/atoms";
+import { DroppedAddClass, DroppedAddTags, SelectedItemSelector } from "@/recoil/selector";
 import React from "react";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 
-import styled, { css, keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import { SelectBox } from './SelectBox';
 
 const ListItem = ({ index }) => {
-  const [ includeHtml, setIncludeHtml ]= useRecoilState(DroppedAddTags);
-  const [ includeCss, setIncludeCss ] = useRecoilState(DroppedAddClass);
+  const setIncludeHtml= useSetRecoilState(DroppedAddTags);
+  const setIncludeCss = useSetRecoilState(DroppedAddClass);
   const [ listItemValue, setListItemValue] = useRecoilState(SelectedItemSelector(index));
   const [ droppedButtons, setDroppedButtons ]  = useRecoilState(IncludeButtonsIdState);
 
@@ -27,8 +27,7 @@ const ListItem = ({ index }) => {
       const filterSelected= droppedButtons.filter((id) => id !== Object.values(listItemValue)[0]);;
       setDroppedButtons(filterSelected);
       setIncludeCss(filterSelected);
-      setIncludeHtml(filterSelected);
-      
+      setIncludeHtml(filterSelected); 
     }
   };
   return (
@@ -45,15 +44,7 @@ const ListItem = ({ index }) => {
 };
 
 export const ButtonsSelectForm = () => {
-  const selectedController= useRecoilValue(SelectedButtonsState);
-  
-
-  const handleReset= (e) => {
-
-  }
-  const handleAllCheck= (e) => {
-
-  }
+  const selectedController  = useRecoilValue(SelectedButtonsState);
 
   return (
     <FormContainer>
@@ -72,10 +63,6 @@ export const ButtonsSelectForm = () => {
             ))}
           </InputList>
         </FormContent>      
-        <AllCheckBoxChange>
-          <ResetButton onClick={handleReset} >リセット</ResetButton>
-          <AllCheckButton onClick={handleAllCheck}>すべて選択</AllCheckButton>
-        </AllCheckBoxChange>
       </FormWrapper>
     </FormContainer>    
   );
@@ -95,7 +82,12 @@ const FormWrapper= styled.section`
   gap           : 50px;
 `;
 
+const CheckBox= styled.input.attrs({ type: 'checkbox' })`
+  display: none;
+`;
+
 const CheckArea= styled.label`
+  position      : relative;
   padding-left   : 1.25rem;
   display        : flex;
   align-items    : center;
@@ -106,32 +98,64 @@ const CheckArea= styled.label`
 
 const checkRotate= keyframes`
   from {
-    height: 20px;
-    width : 20px;
-    border-radius: 4px;
+    height: 16px;
+    width : 16px;
     transform: rotate(0deg);
   }
   to {    
     height: 20px;
     width : 20px;
-    border-radius: 4px;
     transform: rotate(45deg);
+    background: #6129ff;
   }
 `; 
 
-const CheckBox= styled.input.attrs({ type: 'checkbox' })`
-  height: 15px;
-  width : 15px;
-  &:checked {
-    height: 20px;
-    width : 20px;
-    accent-color: #6129FF;
-    border-radius: 4px;
+const CheckBoxLabel= styled.label`
+  position   : relative;
+  padding    : 5px 30px;
+  margin-left: 1rem;
+  font-size  : 1.15rem;
+  font-weight: 600;
+  &:before {
+    width:16px; 
+    height:16px; 
+    left:5px; 
+    border:1px solid #ccc; 
+    border-radius: 5px; 
+    margin-top:-8px;
+  }
+  &:after, 
+  &:before {
+    position: absolute;
+    content : '';
+    top     : 50%;
+  }
+  &::after {
+    position: absolute;
+    width: 5px;
+    height: 9px;
+    top: 50%;
+    left: 10px;
+    border-right: 2px solid #fefefe;
+    border-bottom: 3px solid #fefefe; 
+    content: '';
+    margin-top: -7px;
+    opacity: 0;
     transform: rotate(45deg);
-    animation: ${checkRotate} .5s ease-in-out;
-    svg {
-      transform: rotate(-45deg);
-    }
+  }
+  ${CheckBox}:checked+&::before {
+    height    : 20px;
+    width     : 20px;
+    left      : 2px; 
+    border    : 2px solid #a17fff; 
+    border-radius: 5px; 
+    margin-top: -11px;
+    transform : rotate(45deg);
+    background: #6129ff;
+    animation : ${checkRotate} 0.5s;
+  }
+  ${CheckBox}:checked+&::after {
+    opacity: 1;
   }
 `;
 
@@ -144,43 +168,10 @@ const FormContent= styled.div`
 const SectionLabel= styled.h3`
   font-size: 1rem;
   color: #a3a3a3;
-
-`;
-
-const CheckBoxLabel= styled.label`
-  margin-left: 1rem;
-  font-size  : 1.15rem;
-  font-weight: 600;
 `;
 
 const InputList= styled.ul`
   display: grid;
   grid-template-columns: 180px 180px 180px;
   gap:10px;
-`;
-
-const AllCheckBoxChange= styled.div`
-  display        : flex;
-  justify-content: end;
-  column-gap     : 0.75rem;
-`;
-
-const ResetButton= styled.button`
-  width        : 8.5rem;
-  height       : 2.75rem;
-  font-size    : 12px;
-  color        : #6129ff;
-  border       : 3px solid #6129ff;
-  background   : #fefefe;
-  border-radius: 20px;
-`;
-
-const AllCheckButton= styled.button`
-  width        : 8.5rem;
-  height       : 2.75rem;
-  font-size    : 12px;
-  color        : #fefefe;
-  border       : none;
-  background   : #6129ff;
-  border-radius: 20px;
 `;
