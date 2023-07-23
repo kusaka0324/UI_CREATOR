@@ -1,17 +1,16 @@
 import { EditByCssAtom, IncludeButtonsIdState, SelectedButtonsState } from "@/recoil/atoms";
-import { CssFormatSelector, DroppedAddClass, HtmlFormatSelector, SelectedItemSelector } from "@/recoil/selector";
+import { CssFormatSelector, DroppedAddClass, DroppedAddTags, HtmlFormatSelector, SelectedItemSelector } from "@/recoil/selector";
 import React from "react";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 
 import styled from 'styled-components';
 
 import { SelectBox } from './';
-import { defaultCss } from "@/data";
+import { css } from "@emotion/react";
 
 const ListItem = ({ index }) => {
-  const addDefaultButtonsStyle= useSetRecoilState(DroppedAddClass);
-  const [ formattedHtml, setFormattedHtml ]= useRecoilState(HtmlFormatSelector);
-  const setVisibleCss= useSetRecoilState(EditByCssAtom);
+  const [ includeHtml, setIncludeHtml ]= useRecoilState(DroppedAddTags);
+  const [ includeCss, setIncludeCss ] = useRecoilState(DroppedAddClass);
   const [listItemValue, setListItemValue] = useRecoilState(SelectedItemSelector(index));
   const [ droppedButtons, setDroppedButtons ]  = useRecoilState(IncludeButtonsIdState);
 
@@ -22,27 +21,30 @@ const ListItem = ({ index }) => {
     setListItemValue(checked);
     if(checked == true){
       setDroppedButtons([...droppedButtons, Object.values(listItemValue)[0]]);
+      setIncludeCss([...droppedButtons, Object.values(listItemValue)[0]]);
+      setIncludeHtml([...droppedButtons, Object.values(listItemValue)[0]]);
     } else {
       const filterSelected= droppedButtons.filter((id) => id !== Object.values(listItemValue)[0]);;
       setDroppedButtons(filterSelected);
-      setVisibleCss(defaultCss);
+      setIncludeCss(filterSelected);
+      setIncludeHtml(filterSelected);
+      
     }
   };
   return (
-    <CheckArea htmlFor={index}>
+    <CheckArea htmlFor={listItemValue.id} >
       <CheckBox
         type="checkbox"
         checked={listItemValue.selected}
         onChange={handleClick}
       />
-      <CheckBoxLabel htmlFor={index}>{listItemValue.label}</CheckBoxLabel>
+      <CheckBoxLabel htmlFor={listItemValue.id}>{listItemValue.label}</CheckBoxLabel>
     </CheckArea>
   );
 };
 
 export const ButtonsSelectForm = () => {
   const selectedController= useRecoilValue(SelectedButtonsState);
-
   return (
     <FormContainer>
       <FormWrapper>
@@ -53,9 +55,11 @@ export const ButtonsSelectForm = () => {
         <FormContent>
           <SectionLabel>操作ボタン選択</SectionLabel>
           <InputList>
-            { selectedController.map((_, index) => {
-              return <ListItem key={index} index={index} />;
-            })}
+            { selectedController.map((_, index, item) => (
+              <div key={index}>
+                <ListItem  index={index} />                
+              </div>              
+            ))}
           </InputList>
         </FormContent>
       </FormWrapper>
@@ -74,7 +78,7 @@ const FormContainer= styled.div`
 const FormWrapper= styled.section`
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 50px;
 `;
 
 const CheckArea= styled.li`
@@ -83,8 +87,18 @@ const CheckArea= styled.li`
   align-items    : center;
   height         : 50px;
   width          : 180px;
-  background     : #dddddd;
   border-radius  : 20px;
+
+  ${(props)=> props.activeClassName === 'active' 
+    ? css`
+        color: #fefefe;
+        background: #6129FF;     
+      `
+    : css`
+      color: #6129FF;
+      background : #dddddd;
+    `
+  }
 `;
 
 const CheckBox= styled.input.attrs({ type: 'checkbox' })`
@@ -94,7 +108,9 @@ const CheckBox= styled.input.attrs({ type: 'checkbox' })`
 `;
 
 const FormContent= styled.div`
-
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
 `;
 
 const SectionLabel= styled.h3`
@@ -114,4 +130,3 @@ const InputList= styled.ul`
   grid-template-columns: 180px 180px 180px;
   gap:10px;
 `;
-
