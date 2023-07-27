@@ -5,15 +5,12 @@ import { RecoilRoot }    from 'recoil'
 
 import './index.css'
 import App from './App'
-import { EnableDndProvider } from './providers'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <RecoilRoot>
-        <EnableDndProvider>
-          <App />
-        </EnableDndProvider>        
+        <App />     
       </RecoilRoot>
     </BrowserRouter>
   </React.StrictMode>,
