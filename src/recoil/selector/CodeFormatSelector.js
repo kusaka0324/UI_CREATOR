@@ -35,20 +35,21 @@ export const CssFormatSelector= selector({
 		const addedClasses= get(AddedClass);
 		const prevCssState= get(EditByCssAtom);
 
-		try {
-			const formattedCss= prettier.format(prevCssState, {
-				parser    : "css",
-				plugins   : [parserCss],
-				tabWidth  : 2,
-				printWidth: 200,
-				useTabs   : false,
-			});
+		// try {
+		// 	const formattedCssWithCursor= prettier.formatWithCursor(prevCssState, {
+		// 		parser    : "css",
+		// 		plugins   : [parserCss],
+		// 		tabWidth  : 2,
+		// 		printWidth: 200,
+		// 		useTabs   : false,
+		// 		cursorOffset: prevCssState.indexFromPos(prevCssState.getCursor())
+		// 	});
 		
-			return formattedCss;			
-		}
-		catch(error) {
+		// 	return formattedCssWithCursor;			
+		// }
+		// catch(error) {
 			return prevCssState;
-		}
+		// }
 	},
 	set: ({set}, newCssState) => {
 		set(EditByCssAtom, newCssState);
