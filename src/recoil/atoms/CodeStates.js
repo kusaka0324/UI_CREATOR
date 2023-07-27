@@ -7,5 +7,16 @@ export const EditByHtmlAtom = atom({
 
 export const EditByCssAtom = atom({
   key    : 'edit-css-state',
-  default: `*{box-sizing:border-box;margin:0;padding:0;}html{position:relative;height:100vh;width:100vw;}`,
+  default: 
+`*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+html{
+  position:relative;
+  height:100vh;
+  width:100vw;
+}
+`,
 });
