@@ -1,17 +1,16 @@
-import { IncludeButtonsIdState, SelectedButtonsState } from "@/recoil/atoms";
-import { DroppedAddClass, DroppedAddTags, SelectedItemSelector } from "@/recoil/selector";
 import React from "react";
+import styled, { keyframes } from 'styled-components';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 
-import styled, { keyframes } from 'styled-components';
-
 import { SelectBox } from './SelectBox';
+import { IncludeButtonsIdState, SelectedButtonsState } from "@/recoil/atoms";
+import { AddedClass, AddedTags, SelectedItemSelector } from "@/recoil/selector";
 
 const ListItem = ({ index }) => {
-  const setIncludeHtml= useSetRecoilState(DroppedAddTags);
-  const setIncludeCss = useSetRecoilState(DroppedAddClass);
-  const [ listItemValue, setListItemValue] = useRecoilState(SelectedItemSelector(index));
-  const [ droppedButtons, setDroppedButtons ]  = useRecoilState(IncludeButtonsIdState);
+  const setIncludeHtml= useSetRecoilState(AddedTags);
+  const setIncludeCss = useSetRecoilState(AddedClass);
+  const [ listItemValue, setListItemValue]= useRecoilState(SelectedItemSelector(index));
+  const [ includedButtons, setIncludedButtons ]= useRecoilState(IncludeButtonsIdState);
 
   const handleClick = e => {
     let {
@@ -19,13 +18,13 @@ const ListItem = ({ index }) => {
     } = e;
     setListItemValue(checked);
     if(checked == true){
-      const newIncludedButtonsId= [...droppedButtons, Object.values(listItemValue)[0]];
-      setDroppedButtons(newIncludedButtonsId);
+      const newIncludedButtonsId= [...includedButtons, Object.values(listItemValue)[0]];
+      setIncludedButtons(newIncludedButtonsId);
       setIncludeCss(newIncludedButtonsId);
       setIncludeHtml(newIncludedButtonsId);
     } else {
-      const filterSelected= droppedButtons.filter((id) => id !== Object.values(listItemValue)[0]);;
-      setDroppedButtons(filterSelected);
+      const filterSelected= includedButtons.filter((id) => id !== Object.values(listItemValue)[0]);;
+      setIncludedButtons(filterSelected);
       setIncludeCss(filterSelected);
       setIncludeHtml(filterSelected); 
     }

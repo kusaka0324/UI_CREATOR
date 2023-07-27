@@ -3,14 +3,14 @@ import prettier     from 'prettier/standalone';
 import parserHtml   from 'prettier/parser-html';
 import parserCss    from 'prettier/parser-postcss';
 
-import { EditByCssAtom, EditByHtmlAtom, EditErrorState } from "../atoms";
-import { DroppedAddClass, DroppedAddTags } from './DroppedModifyCodeSelector';
+import { EditByCssAtom, EditByHtmlAtom } from "../atoms";
+import { AddedClass, AddedTags } from './ModifyCodeSelector';
 import {  defaultHtml } from '@/data';
 
 export const HtmlFormatSelector= selector({
 	key: 'code-format-html',
 	get: ({get}) => {
-		const addTags= get(DroppedAddTags);
+		const addTags= get(AddedTags);
 		const defaultHtml= get(EditByHtmlAtom);
 		
 			const formattedHtml = prettier.format(addTags, {
@@ -32,7 +32,7 @@ export const HtmlFormatSelector= selector({
 export const CssFormatSelector= selector({
 	key: 'code-format-css',
 	get: ({get}) => {
-		const addedClasses= get(DroppedAddClass);
+		const addedClasses= get(AddedClass);
 		const prevCssState= get(EditByCssAtom);
 
 		try {
@@ -47,7 +47,6 @@ export const CssFormatSelector= selector({
 			return formattedCss;			
 		}
 		catch(error) {
-	
 			return prevCssState;
 		}
 	},

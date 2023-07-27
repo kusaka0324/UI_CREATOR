@@ -4,7 +4,7 @@ import { EditByCssAtom, EditByHtmlAtom, IncludeButtonsIdState } from '../atoms';
 import { controllerList } from '@/data';
 import { cssStyle } from '@/data';
 
-export const DroppedAddClass= selector({
+export const AddedClass= selector({
 	key: 'add-class',
 	get: ({get}) => {
 		const droppedButtonsId= get(IncludeButtonsIdState);
@@ -31,7 +31,7 @@ export const DroppedAddClass= selector({
 	}
 });
 
-export const DroppedAddTags= selector({
+export const AddedTags= selector({
 	key: 'add-tag',
 	get: ({get}) => {
 		const droppedButtonsId= get(IncludeButtonsIdState);
