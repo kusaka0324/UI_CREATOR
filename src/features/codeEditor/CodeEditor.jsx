@@ -24,10 +24,10 @@ export const CodeEditor = () => {
             </TabList>
           </EditorHead>
           <EditArea> 
-            <TabPanel>
+            <div>
               { activeTab === 'html' && <EditHtml /> }
               { activeTab === 'css'  && <EditCss /> }                
-            </TabPanel>  
+            </div>  
           </EditArea>
         </Tabs>
       </EditorWrapper>
@@ -55,16 +55,6 @@ const EditorHead= styled.div`
   height  : 3.25rem;
   z-index : 9999;
 `; 
-
-const OptionDiv= styled.div`
-  position  : absolute;
-  display   : flex;
-  column-gap: 5px;
-  top       : 50%;
-  right     : 20px;
-  transform : translateY(-50%);
-  z-index   : 999;
-`;
 
 const EditArea= styled.div`
   height    : calc(100vh - 20rem);
@@ -107,11 +97,6 @@ const Tab= styled.li`
       color        : #FFFFFF;
       background   : #6129FF;
       border-bottom: none;
-      transition   : 0.3s;
     `
   }
-`;
-
-const TabPanel= styled.div`
-
 `;
