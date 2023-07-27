@@ -1,8 +1,7 @@
 import axios from "axios";
-import { CONTROLLER_API_URL } from "@/config";
 
 export async function postCustom(data) {
-  axios.post(CONTROLLER_API_URL, {data}, {
+  axios.post('/controller', {data}, {
     headers: {
       'Content-Type': 'application/json', 
     },

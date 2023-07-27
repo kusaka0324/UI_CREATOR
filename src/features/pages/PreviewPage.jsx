@@ -23,7 +23,7 @@ export const PreviewPage = () => {
 
   const handlePostCustom= (e) => {
     e.preventDefault();
-    // postCustom(JSON.stringify(postData));
+    postCustom(JSON.stringify(postData));
     console.log(JSON.stringify(postData));
   }
 
@@ -78,7 +78,7 @@ const PreviewWrapper= styled.div`
 
 const ApplyButton= styled.button`
   position       : absolute;
-  bottom         : 0;
+  bottom         : -20px;
   right          : 20%;
   display        : flex;
   justify-content: center;
