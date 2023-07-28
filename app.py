@@ -10,7 +10,7 @@ status = [{"button": [False for j in range(5)]} for i in range(5)]
 @blueprint.route("/", methods=["GET", "POST"])
 def Controller():
     if request.method == "GET":
-        return render_template("controller" + request.args.get("controller") + ".html")
+        return render_template("src/controller/controller" + request.args.get("controller") + ".html")
     if request.method == "POST":
         data = request.json
         with open("templates/template.html", "rb") as file:
