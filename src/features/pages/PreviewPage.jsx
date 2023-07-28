@@ -1,6 +1,7 @@
 import React              from 'react';
 import styled             from 'styled-components';
 import { useRecoilValue } from 'recoil';
+import axios from "axios";
 import SendIcon           from '@mui/icons-material/Send';
 
 import { Screen }                   from '../screen';
@@ -23,7 +24,20 @@ export const PreviewPage = () => {
 
   const handlePostCustom= (e) => {
     e.preventDefault();
-    postCustom(JSON.stringify(postData));
+    const formatJsonData= JSON.stringify(postData);
+    
+    axios.post("/controller", {formatJsonData}, {
+      headers: {
+        'Content-Type': 'application/json', 
+      },
+    })
+    .then(response => {
+      console.log(response);
+    })
+    .catch(error => {
+      console.log(error);
+      alert('通信エラー');
+    });
     console.log(JSON.stringify(postData));
   }
 
