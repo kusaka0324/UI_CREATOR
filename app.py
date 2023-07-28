@@ -10,7 +10,7 @@ status = [{"button": [False for j in range(5)]} for i in range(5)]
 @blueprint.route("/", methods=["GET", "POST"])
 def Controller():
     if request.method == "GET":
-        return render_template("src/controller/controller" + request.args.get("controller") + ".html")
+        return render_template("controller" + request.args.get("controller") + ".html")
     if request.method == "POST":
         data = request.json
         with open("templates/template.html", "rb") as file:
@@ -24,9 +24,9 @@ def Controller():
             htmlBody += "<button type='button' id='" + \
                 button[data["button"][i]] + "Button'></button>"
         soup.body.append(htmlBody)
-        with open("controller" + str(data["controller"]) + ".html", "rb") as file:
+        with open("src/controller/controller" + str(data["controller"]) + ".html", "rb") as file:
             file.write(soup.prettify())
-        with open("controller" + str(data["controller"]) + ".css", "wb") as file:
+        with open("src/controller/controller" + str(data["controller"]) + ".css", "wb") as file:
             file.write(data["css"])
         return Response(status=204)
 
