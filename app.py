@@ -21,8 +21,15 @@ def Controller():
         button = ["leftForward", "leftReverse", "rightForward",
                   "rightReverse", "speedBoost", "rightTurn", "leftTurn"]
         for i in range(len(data["button"])):
-            htmlBody += "<button type='button' id='" + \
-                button[data["button"][i]] + "Button'></button>"
+            button_element = soup.new_tag("button", id=button[data["button"][i]] + "Button")
+            svg_file_path = f"src/assets/{button[data['button'][i]]}.svg"  # svgファイルのパスを動的に変更
+
+            with open(svg_file_path, "r") as svg_file:
+                svg_content = svg_file.read()
+
+            button_element.append(BeautifulSoup(svg_content, "html.parser").svg)
+            htmlBody += str(button_element)
+            
         soup.body.append(BeautifulSoup(htmlBody))
         with open("templates/controller" + str(data["controller"]) + ".html", "w") as file:
             file.write(soup.prettify())
