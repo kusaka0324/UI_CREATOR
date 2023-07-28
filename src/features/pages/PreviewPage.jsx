@@ -77,9 +77,6 @@ const PreviewWrapper= styled.div`
 `;
 
 const ApplyButton= styled.button`
-  position       : absolute;
-  bottom         : -20px;
-  right          : 20%;
   display        : flex;
   justify-content: center;
   align-items    : center;
@@ -90,10 +87,22 @@ const ApplyButton= styled.button`
   outline        : 0;
   background     : #6129FF;
   border-radius  : 20px;
-
+  transition: all 0.3s;
   > label {
+    display: block;
     margin-right: 10px;
     font-size   : 20px;
     font-weight : bold;
+    transition: all 0.3s;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  &:active {
+    transform: scale(0.95);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   }
 `;
