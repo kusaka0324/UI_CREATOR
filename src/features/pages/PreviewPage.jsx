@@ -3,8 +3,8 @@ import styled             from 'styled-components';
 import { useRecoilValue } from 'recoil';
 import SendIcon           from '@mui/icons-material/Send';
 
-import { Screen }                               from '../screen';
-import { Header, Sidebar, Topber }   from '@/components/ui';
+import { Screen }                   from '../screen';
+import { Header, Sidebar, Topber }  from '@/components';
 import { EditByCssAtom, IncludeButtonsIdState } from '@/recoil/atoms';
 import { SelectedControllerState } from '@/recoil/atoms/SelectedControllerState';
 import { defaultCss } from '@/data';
