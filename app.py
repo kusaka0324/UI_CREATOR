@@ -16,7 +16,7 @@ def Controller():
         with open("templates/template.html", "rb") as file:
             html = file.read()
         soup = BeautifulSoup(html, "html.parser")
-        soup.title = "Controller" + data["controller"]
+        soup.title = "Controller" + str(data["controller"])
         htmlBody = ""
         button = ["leftForward", "leftReverse", "rightForward",
                   "rightReverse", "speedBoost", "rightTurn", "leftTurn"]
