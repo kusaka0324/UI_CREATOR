@@ -1,6 +1,5 @@
 import React  			      from 'react'
 import { useRecoilState } from 'recoil';
-
 import styled from 'styled-components';
 
 import { SelectedControllerState } from '@/recoil/atoms';
@@ -23,9 +22,13 @@ export const SelectBox = () => {
 
 const SelectBoxStyle= styled.select`
 	height       : 40px;
-	width        : 200px;
+	width        : 250px;
 	text-align   : center;
 	font-size    : 1.25rem;
 	border-radius: 10px;
 	border       : 1px solid #bebebe;
+
+	&:focus {
+		outline: 2px solid #6129FF;
+	}
 `;

@@ -4,10 +4,11 @@ import { useRecoilValue } from 'recoil';
 import SendIcon           from '@mui/icons-material/Send';
 
 import { Screen }                               from '../screen';
-import { Header, SelectBox, Sidebar, Topber }   from '@/components/ui';
+import { Header, Sidebar, Topber }   from '@/components/ui';
 import { EditByCssAtom, IncludeButtonsIdState } from '@/recoil/atoms';
 import { SelectedControllerState } from '@/recoil/atoms/SelectedControllerState';
 import { defaultCss } from '@/data';
+import { postCustom } from '../preview';
 
 export const PreviewPage = () => {
   const selectedController= useRecoilValue(SelectedControllerState);
@@ -22,7 +23,8 @@ export const PreviewPage = () => {
 
   const handlePostCustom= (e) => {
     e.preventDefault();
-    {console.log(JSON.stringify(postData))}
+    postCustom(JSON.stringify(postData));
+    console.log(JSON.stringify(postData));
   }
 
   return (
@@ -33,7 +35,6 @@ export const PreviewPage = () => {
         <ContentDiv>
           <Header title={'Preview'} subTitle={'作成したUIを設定しよう'} />
           <PreviewWrapper>
-            <SelectBox/>
             <Screen mode={'preview'} />
             <ApplyButton type='submit' onClick={handlePostCustom} >
               <label>Apply</label>
@@ -52,11 +53,11 @@ const PreviewLayout= styled.div`
 `;
 
 const ScreenLayout= styled.div`
-  display: flex;
-  padding: 1rem;
-  height : calc(100vh - 80px);
-  width  : 100%;
-
+  position: relative; 
+  display : flex;
+  padding : 1rem;
+  height  : calc(100vh - 80px);
+  width   : 100%;
 `;
 
 const ContentDiv= styled.div`
@@ -76,11 +77,14 @@ const PreviewWrapper= styled.div`
 `;
 
 const ApplyButton= styled.button`
+  position       : absolute;
+  bottom         : -20px;
+  right          : 20%;
   display        : flex;
   justify-content: center;
   align-items    : center;
-  width          : 12.5rem;
-  height         : 4.15rem;
+  width          : 150px;
+  height         : 60px;
   color          : #FEFEFE;
   border         : 0;
   outline        : 0;
@@ -89,7 +93,7 @@ const ApplyButton= styled.button`
 
   > label {
     margin-right: 10px;
-    font-size   : 1.75rem;
+    font-size   : 20px;
     font-weight : bold;
   }
 `;

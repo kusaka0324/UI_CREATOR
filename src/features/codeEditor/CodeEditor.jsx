@@ -1,14 +1,11 @@
 import React, { useState } from 'react';     
 import styled,{ css }      from 'styled-components';
-import ColorLensIcon       from '@mui/icons-material/ColorLens';
 
 import { EditHtml, EditCss } from './edit-code';
-import { SelectCssProps }    from './properties';
 import { Header }            from '@/components/ui';
 
 export const CodeEditor = () => {
   const [ activeTab, setActiveTab ]= useState('css');
-  // const [ isDrawerOpen, setIsDrawerOpen ]   = useState(false);
 
   const handleClick= (tabName) => {
     setActiveTab(tabName);
@@ -25,20 +22,12 @@ export const CodeEditor = () => {
               <Tab onClick={() => handleClick('html')} active={activeTab==='html'} >{ 'HTML' }</Tab>
               <Tab onClick={() => handleClick('css')}  active={activeTab==='css'}  >{ 'CSS'  }</Tab>
             </TabList>
-            <OptionDiv>
-              {/* <DrawerIconButton onClick={handleIsOpen} >
-                { isDrawerOpen === false
-                  ? <OpenIcon/>
-                  : <CloseIcon/>
-                }
-              </DrawerIconButton> */}
-            </OptionDiv>
           </EditorHead>
           <EditArea> 
-            <TabPanel>
+            <div>
               { activeTab === 'html' && <EditHtml /> }
               { activeTab === 'css'  && <EditCss /> }                
-            </TabPanel>  
+            </div>  
           </EditArea>
         </Tabs>
       </EditorWrapper>
@@ -66,16 +55,6 @@ const EditorHead= styled.div`
   height  : 3.25rem;
   z-index : 9999;
 `; 
-
-const OptionDiv= styled.div`
-  position  : absolute;
-  display   : flex;
-  column-gap: 5px;
-  top       : 50%;
-  right     : 10px;
-  transform : translateY(-50%);
-  z-index   : 999;
-`;
 
 const EditArea= styled.div`
   height    : calc(100vh - 20rem);
@@ -118,26 +97,6 @@ const Tab= styled.li`
       color        : #FFFFFF;
       background   : #6129FF;
       border-bottom: none;
-      transition   : 0.3s;
     `
   }
 `;
-
-const TabPanel= styled.div`
-
-`;
-// const DrawerIconButton= styled.button`  
-//   display        : flex;
-//   align-items    : center;
-//   justify-content: center;
-//   border         : 0;   
-//   width          : 3rem;
-//   height         : 3rem;
-//   background     : #1E1E1E;
-//   border-radius  : 10px;
-//   z-index        : 99999;
-
-//   &:hover {
-//     background: #343434;
-//   }
-// `;

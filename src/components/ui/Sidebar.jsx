@@ -1,12 +1,9 @@
-import React          from 'react';
-import styled,{ css } from 'styled-components';
-import { NavLink }    from 'react-router-dom';
-import { useRecoilState } from 'recoil';
-import CodeIcon       from '@mui/icons-material/Code';
-import GridViewIcon   from '@mui/icons-material/GridView';
-import SmartphoneIcon from '@mui/icons-material/Smartphone';
-
-import { ActivePageState } from '@/recoil/atoms';
+import React                    from 'react';
+import styled,{ css }           from 'styled-components';
+import { NavLink, useLocation } from 'react-router-dom';
+import CodeIcon                 from '@mui/icons-material/Code';
+import GridViewIcon             from '@mui/icons-material/GridView';
+import SmartphoneIcon           from '@mui/icons-material/Smartphone';
 
 const SidebarMenuList= [
 	{
@@ -30,21 +27,20 @@ const SidebarMenuList= [
 ];
 
 export const Sidebar = () => {
-  const [ activePage, setActivePage ] = useRecoilState(ActivePageState);
+  const activeLocation = useLocation();
 
-  function handleButtonClick(title) { 
-    setActivePage(title);
-  }
-  
+  const isActive = (pathname) => {
+    return activeLocation.pathname === pathname;
+  };
+
   return (
     <Navigation >
       <NavList >
         {SidebarMenuList.map(({ id, title, path, icon }) => (
           <NavItemStyleDiv key={id} >   
             <NavItem 
-              to     = {path} 
-              active = {activePage === title }
-              onClick= {() => handleButtonClick(title)}
+              to= {path} 
+              className={isActive(path) ? 'active' : ''}
             >
               {icon}
             </NavItem>
@@ -105,14 +101,18 @@ const NavItem= styled(NavLink)`
     background: #eee9ff;
   }
   ${(props) => 
-    props.active && 
-    css`
-      color     : #FEFEFE;
-      background: #6129FF;
-      transition: 0.3s;
-      &:hover {
+    props.className == 'active' 
+    ? css`
+        color     : #FEFEFE;
         background: #6129FF;
-      }
+        transition: 0.3s;
+        &:hover {
+          background: #6129FF;
+        }
+      `
+    : css`
+      color          : #6129FF;
+      background     : #FEFEFE;
     `
   }
 `;

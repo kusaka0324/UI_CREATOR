@@ -1,3 +1,4 @@
 export * from './CodeFormatSelector';
-export * from './DroppedModifyCodeSelector';
+export * from './ModifyCodeSelector';
 export * from './MergeCodeSelector';
+export * from './SelectedItemSelector';
