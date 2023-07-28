@@ -24,9 +24,9 @@ def Controller():
             htmlBody += "<button type='button' id='" + \
                 button[data["button"][i]] + "Button'></button>"
         soup.body.append(htmlBody)
-        with open("src/controller/controller" + str(data["controller"]) + ".html", "wb") as file:
-            file.write(soup.prettify().encode("utf-8"))
-        with open("src/controller/controller" + str(data["controller"]) + ".css", "wb") as file:
+        with open("src/controller/controller" + str(data["controller"]) + ".html", "w") as file:
+            file.write(soup.prettify())
+        with open("src/controller/controller" + str(data["controller"]) + ".css", "w") as file:
             file.write(data["css"])
         return Response(status=204)
 
