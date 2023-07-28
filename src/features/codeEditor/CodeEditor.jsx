@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled,{ css }      from 'styled-components';
 
 import { EditHtml, EditCss } from './editCode';
-import { Header }            from '@/components/ui';
+import { Header }            from '@/components';
 
 export const CodeEditor = () => {
   const [ activeTab, setActiveTab ]= useState('css');
