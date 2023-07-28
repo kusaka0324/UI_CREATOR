@@ -1,15 +1,14 @@
-import React                         from 'react';
-import styled                        from 'styled-components';
+import React  from 'react';
+import styled from 'styled-components';
 
-import { MainLayout, ContentLayout } from '@/components/layouts'
 import { CodeEditor }                from '../codeEditor'
 import { Screen }                    from '../screen'
+import { ContentLayout, MainLayout } from '@/components/layouts';
 
 export const CodeEditPage = () => {
-
   return (
     <MainLayout>      
-      <PreviewLayout >
+      <PreviewLayout>
         <Screen />
       </PreviewLayout>
       <ContentLayout>
