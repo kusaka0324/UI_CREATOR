@@ -23,7 +23,7 @@ def Controller():
         for i in range(len(data["button"])):
             htmlBody += "<button type='button' id='" + \
                 button[data["button"][i]] + "Button'></button>"
-        soup.body.append(htmlBody)
+        soup.body.append(BeautifulSoup(htmlBody))
         with open("src/controller/controller" + str(data["controller"]) + ".html", "w") as file:
             file.write(soup.prettify())
         with open("src/controller/controller" + str(data["controller"]) + ".css", "w") as file:
