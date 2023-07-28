@@ -1,7 +1,8 @@
 import React  from 'react';
 import styled from 'styled-components';
 
-import { ContentLayout, MainLayout } from '@/components/layouts'
+import { ContentLayout } from '../../components/layouts/ContentLayout';
+import { MainLayout }    from '../../components/layouts/MainLayout';
 import { Header }                    from '@/components/ui';
 import { Screen }                    from '../screen';
 import { ButtonsSelectForm } from '@/features/controller/ButtonsSelectForm';
