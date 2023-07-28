@@ -1,7 +1,7 @@
 import React, { useState } from 'react';     
 import styled,{ css }      from 'styled-components';
 
-import { EditHtml, EditCss } from './edit-code';
+import { EditHtml, EditCss } from './editCode';
 import { Header }            from '@/components/ui';
 
 export const CodeEditor = () => {
