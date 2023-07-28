@@ -13,7 +13,7 @@ def Controller():
         return render_template("controller" + request.args.get("controller") + ".html")
     if request.method == "POST":
         data = request.json
-        with open("template.html", "rb") as file:
+        with open("templates/template.html", "rb") as file:
             html = file.read()
         soup = BeautifulSoup(html, "html.parser")
         soup.title = "Controller" + data["controller"]
