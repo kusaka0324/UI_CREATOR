@@ -1,7 +1,7 @@
 import React  from 'react';
 import styled from 'styled-components';
 
-import { Header, Sidebar, Topber }                    from '@/components';
+import { Header, Sidebar, Topber }   from '@/components';
 import { Screen }                    from '../screen';
 import { ButtonsSelectForm } from '@/features/controller/ButtonsSelectForm';
 
