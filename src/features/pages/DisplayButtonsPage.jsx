@@ -1,19 +1,19 @@
 import React  from 'react';
 import styled from 'styled-components';
 
-import { ContentLayout } from '../../components/layouts/ContentLayout';
-import { MainLayout }    from '../../components/layouts/MainLayout';
-import { Header }                    from '@/components/ui';
+import { Header, Sidebar, Topber }                    from '@/components';
 import { Screen }                    from '../screen';
 import { ButtonsSelectForm } from '@/features/controller/ButtonsSelectForm';
 
 export const DisplayButtonsPage = () => {
   return (
-    <MainLayout>      
+    <MainLayout>  
+      <Topber/>    
       <PreviewLayout >
         <Screen />
       </PreviewLayout>
       <ContentLayout>
+        <Sidebar/>
         <SelectAreaLayout>
           <Header title={'Buttons'} subTitle={'操作ボタンを配置しよう'} />
           <ButtonsSelectForm />
@@ -23,6 +23,24 @@ export const DisplayButtonsPage = () => {
   )
 }
 
+const MainLayout= styled.div`
+  display    : grid;
+  margin     : 0;
+  max-height : 100vh;
+  max-width  : 100vw;
+  grid-template-rows   : 80px 1fr;
+  grid-template-columns: 1fr 1fr;
+`;
+
+const ContentLayout= styled.main`
+  display    : flex;
+  grid-row   : 2;
+  grid-column: 1;
+  width      : 100%;
+  height     : 100%;
+  background : #ECECEC;
+  padding    : 1rem;
+`;
 
 const PreviewLayout= styled.div`
   height         : 100%;
