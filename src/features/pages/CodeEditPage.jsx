@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 import { CodeEditor }                from '../codeEditor'
 import { Screen }                    from '../screen'
-import { ContentLayout, MainLayout } from '../../components/layouts';
+import { MainLayout } from '@/components/layouts/MainLayout';
+import { ContentLayout } from '@/components/layouts/ContentLayout';
 
 export const CodeEditPage = () => {
   return (
