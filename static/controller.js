@@ -18,7 +18,7 @@ for (let i = 0; i < button.length; i++) {
 for (let i = 0; i < button.length; i++) {
   if (buttonElements[i] !== null) {
     if (i < 5) {
-      buttonElements[i].addEventListener("touchstart", function () {
+      buttonElements[i].addEventListener("click", function () {
         toggleButton(controller, i, 1);
       });
       buttonElements[i].addEventListener("touchend", function () {
