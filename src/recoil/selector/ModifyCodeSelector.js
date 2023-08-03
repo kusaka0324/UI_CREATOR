@@ -2,7 +2,6 @@ import { selector } from 'recoil';
 
 import { EditByCssAtom, EditByHtmlAtom, IncludeButtonsIdState } from '../atoms';
 import { controllerList } from '@/data';
-import { cssStyle } from '@/data';
 
 export const AddedClass= selector({
 	key: 'add-class',
@@ -10,7 +9,7 @@ export const AddedClass= selector({
 		const droppedButtonsId= get(IncludeButtonsIdState);
 		let newClasses = '';
 		
-		{ cssStyle
+		{ controllerList
 				.filter(({id}) => droppedButtonsId.includes(id))
 				.map(({defaultStyle})=> 
 					newClasses+= `${defaultStyle}`
@@ -21,7 +20,7 @@ export const AddedClass= selector({
 	set: ({set}, droppedButtonsId) => {
 		let newClasses = '';
 		
-		{ cssStyle
+		{ controllerList
 			.filter(({id}) => droppedButtonsId.includes(id))
 			.map(({defaultStyle})=> 
 				newClasses+= `${defaultStyle}`
@@ -36,25 +35,21 @@ export const AddedTags= selector({
 	get: ({get}) => {
 		const droppedButtonsId= get(IncludeButtonsIdState);
 		let newTags = '';
-		{ controllerList.map(({contents}) => (
-			contents
+		{ controllerList
 				.filter(({id}) => droppedButtonsId.includes(id))
 				.map(({className, svgIconTag})=> 
 					newTags+= `<button id="${className}"><span>${svgIconTag.replace(/'/g, '')}</span></button>\n`
-				))
-			)
+				)
 		}
 		return newTags;
 	},
 	set: ({set}, droppedButtonsId) => {
 		let newTags = '';
-		{ controllerList.map(({contents}) => (
-			contents
+		{ controllerList
 				.filter(({id}) => droppedButtonsId.includes(id))
 				.map(({className, svgIconTag})=> 
 					newTags+= `<button id="${className}"><span>${svgIconTag.replace(/'/g, '')}</span></button>\n`
-				))
-			)
+				)
 		}
 		set(EditByHtmlAtom,newTags);
 	}
