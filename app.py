@@ -17,6 +17,8 @@ def Controller():
             html = file.read()
         soup = BeautifulSoup(html, "html.parser")
         soup.title.string = "Controller" + str(data["controller"])
+        soup.head.append(soup.new_tag("link", rel="stylesheet", href="static/controller" + str(data["controller"] + ".css")))
+
         htmlBody = ""
         button = ["leftForward", "leftReverse", "rightForward",
                   "rightReverse", "speedBoost", "rightTurn", "leftTurn"]
