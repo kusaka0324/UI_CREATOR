@@ -1,10 +1,9 @@
-import React from "react";
-import styled, { keyframes } from 'styled-components';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import styled, { keyframes } from 'styled-components';
 
-import { SelectBox } from './SelectBox';
 import { IncludeButtonsIdState, SelectedButtonsState } from "@/recoil/atoms";
 import { AddedClass, AddedTags, SelectedItemSelector } from "@/recoil/selector";
+import { SelectBox } from './SelectBox';
 
 const ListItem = ({ index }) => {
   const setIncludeHtml= useSetRecoilState(AddedTags);
@@ -26,7 +25,7 @@ const ListItem = ({ index }) => {
       const filterSelected= includedButtons.filter((id) => id !== Object.values(listItemValue)[0]);;
       setIncludedButtons(filterSelected);
       setIncludeCss(filterSelected);
-      setIncludeHtml(filterSelected); 
+      setIncludeHtml(filterSelected);
     }
   };
   return (
@@ -49,7 +48,7 @@ export const ButtonsSelectForm = () => {
     <FormContainer>
       <FormWrapper>
         <FormContent>
-          <SectionLabel>コントローラ選択</SectionLabel>
+          <SectionLabel>コントローラー選択</SectionLabel>
           <SelectBox />
         </FormContent>
         <FormContent>
@@ -57,13 +56,13 @@ export const ButtonsSelectForm = () => {
           <InputList>
             { selectedController.map((_, index) => (
               <div key={index}>
-                <ListItem  index={index} />                
-              </div>              
+                <ListItem  index={index} />
+              </div>
             ))}
           </InputList>
-        </FormContent>      
+        </FormContent>
       </FormWrapper>
-    </FormContainer>    
+    </FormContainer>
   );
 };
 
@@ -101,13 +100,13 @@ const checkRotate= keyframes`
     width : 16px;
     transform: rotate(0deg);
   }
-  to {    
+  to {
     height: 20px;
     width : 20px;
     transform: rotate(45deg);
     background: #6129ff;
   }
-`; 
+`;
 
 const CheckBoxLabel= styled.label`
   position   : relative;
@@ -116,14 +115,14 @@ const CheckBoxLabel= styled.label`
   font-size  : 1.15rem;
   font-weight: 600;
   &:before {
-    width:16px; 
-    height:16px; 
-    left:5px; 
-    border:1px solid #ccc; 
-    border-radius: 5px; 
+    width:16px;
+    height:16px;
+    left:5px;
+    border:1px solid #ccc;
+    border-radius: 5px;
     margin-top:-8px;
   }
-  &:after, 
+  &:after,
   &:before {
     position: absolute;
     content : '';
@@ -136,7 +135,7 @@ const CheckBoxLabel= styled.label`
     top: 50%;
     left: 10px;
     border-right: 2px solid #fefefe;
-    border-bottom: 3px solid #fefefe; 
+    border-bottom: 3px solid #fefefe;
     content: '';
     margin-top: -7px;
     opacity: 0;
@@ -145,9 +144,9 @@ const CheckBoxLabel= styled.label`
   ${CheckBox}:checked+&::before {
     height    : 20px;
     width     : 20px;
-    left      : 2px; 
-    border    : 2px solid #a17fff; 
-    border-radius: 5px; 
+    left      : 2px;
+    border    : 2px solid #a17fff;
+    border-radius: 5px;
     margin-top: -11px;
     transform : rotate(45deg);
     background: #6129ff;
