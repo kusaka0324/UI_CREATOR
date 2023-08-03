@@ -48,7 +48,7 @@ export const ButtonsSelectForm = () => {
     <FormContainer>
       <FormWrapper>
         <FormContent>
-          <SectionLabel>コントローラ選択</SectionLabel>
+          <SectionLabel>コントローラー選択</SectionLabel>
           <SelectBox />
         </FormContent>
         <FormContent>
