@@ -12,10 +12,10 @@ export const cssStyle= [
   background:grey; /*ボタンの色*/
   border:none; /*ボタンの枠色*/
   border-radius:0px; /*ボタンの角を丸める*/
-  & svg{
-    color:black; /*アイコンの色*/
-    width:16px;  /*アイコンの大きさ*/
-  }
+}
+#leftForward svg{
+  color:black; /*アイコンの色*/
+  width:16px;  /*アイコンの大きさ*/
 }
 `
 	},
@@ -32,10 +32,10 @@ export const cssStyle= [
   background:grey; /*ボタンの色*/
   border:none; /*ボタンの枠色*/
   border-radius:0px; /*ボタンの角を丸める*/
-  & svg{
-    color:black; /*アイコンの色*/
-    width:16px;  /*アイコンの大きさ*/
-  }
+}
+#leftReverse svg{
+  color:black; /*アイコンの色*/
+  width:16px;  /*アイコンの大きさ*/
 }
 `
 	},
@@ -52,10 +52,10 @@ export const cssStyle= [
   background:grey; /*ボタンの色*/
   border:none; /*ボタンの枠色*/
   border-radius:0px; /*ボタンの角を丸める*/
-  & svg{
-    color:black; /*アイコンの色*/
-    width:16px;  /*アイコンの大きさ*/
-  }
+}
+#rightForward svg{
+  color:black; /*アイコンの色*/
+  width:16px;  /*アイコンの大きさ*/
 }
 `
 	},
@@ -72,10 +72,10 @@ export const cssStyle= [
   background:grey; /*ボタンの色*/
   border:none; /*ボタンの枠色*/
   border-radius:0px; /*ボタンの角を丸める*/
-  & svg{
-    color:black; /*アイコンの色*/
-    width:16px;  /*アイコンの大きさ*/
-  }
+}
+#rightReverse svg{
+  color:black; /*アイコンの色*/
+  width:16px;  /*アイコンの大きさ*/
 }
 `
 	},
@@ -92,10 +92,10 @@ export const cssStyle= [
   background:grey; /*ボタンの色*/
   border:none; /*ボタンの枠色*/
   border-radius:0px; /*ボタンの角を丸める*/
-  & svg{
-    color:black; /*アイコンの色*/
-    width:16px;  /*アイコンの大きさ*/
-  }
+}
+#speedBoost svg{
+  color:black; /*アイコンの色*/
+  width:16px;  /*アイコンの大きさ*/
 }
 `
 	},
@@ -112,10 +112,10 @@ export const cssStyle= [
   background:grey; /*ボタンの色*/
   border:none; /*ボタンの枠色*/
   border-radius:0px; /*ボタンの角を丸める*/
-  & svg{
-    color:black; /*アイコンの色*/
-    width:16px;  /*アイコンの大きさ*/
-  }
+}
+#leftTurn svg{
+  color:black; /*アイコンの色*/
+  width:16px;  /*アイコンの大きさ*/
 }
 `
 	},
@@ -132,10 +132,10 @@ export const cssStyle= [
   background:grey; /*ボタンの色*/
   border:none; /*ボタンの枠色*/
   border-radius:0px; /*ボタンの角を丸める*/
-  & svg{
-    color:black; /*アイコンの色*/
-    width:16px;  /*アイコンの大きさ*/
-  }
+}
+#rightTurn svg{
+  color:black; /*アイコンの色*/
+  width:16px;  /*アイコンの大きさ*/
 }
 `
 	},
