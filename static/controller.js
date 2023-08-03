@@ -15,6 +15,7 @@ for (let i = 0; i < button.length; i++) {
   buttonElements.push(document.getElementById(button[i]));
 }
 console.log(buttonElements)
+console.log(document.getElementById("leftForward"));
 console.log(controller)
 for (let i = 0; i < button.length; i++) {
   console.log(i)
