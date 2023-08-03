@@ -3,18 +3,18 @@ export const cssStyle= [
 		id: 0,
 		className   : 'leftForward',
 		defaultStyle: 
-`#leftForward{
+`#leftForward{ /*左車輪前進*/
   position:absolute;
-  top:0%;
-  left:0%;
-  width:60px;
-  height:60px;
-  background:grey;
-  border:none;
-  border-radius:0px;
+  top:0%; /*ボタンの垂直方向の配置位置*/
+  left:0%; /*ボタンの水平方向の配置位置*/
+  width:10vw; /*ボタンの幅*/
+  height:20vh; /*ボタンの高さ*/
+  background:grey; /*ボタンの色*/
+  border:none; /*ボタンの枠色*/
+  border-radius:0px; /*ボタンの角を丸める*/
   & svg{
-    color:black;
-    width:16px;
+    color:black; /*アイコンの色*/
+    width:16px;  /*アイコンの大きさ*/
   }
 }
 `
@@ -23,18 +23,18 @@ export const cssStyle= [
 		id: 1,
 		className   : 'leftReverse',
 		defaultStyle: 
-`#leftReverse{
+`#leftReverse{ /*左車輪後進*/
   position:absolute;
-  top:0%;
-  left:10%;
-  width:60px;
-  height:60px;
-  background:grey;
-  border:none;
-  border-radius:0px;
+  top:0%; /*ボタンの垂直方向の配置位置*/
+  left:10%; /*ボタンの水平方向の配置位置*/
+  width:10vw; /*ボタンの幅*/
+  height:20vh; /*ボタンの高さ*/
+  background:grey; /*ボタンの色*/
+  border:none; /*ボタンの枠色*/
+  border-radius:0px; /*ボタンの角を丸める*/
   & svg{
-    color:black;
-    width:16px;
+    color:black; /*アイコンの色*/
+    width:16px;  /*アイコンの大きさ*/
   }
 }
 `
@@ -43,18 +43,18 @@ export const cssStyle= [
 		id: 2,
 		className   : 'rightForward',
 		defaultStyle: 
-`#rightForward{
+`#rightForward{ /*右車輪前進*/
   position:absolute;
-  top:0%;
-  left:20%;
-  width:60px;
-  height:60px;
-  background:grey;
-  border:none;
-  border-radius:0px;
+  top:0%; /*ボタンの垂直方向の配置位置*/
+  left:20%; /*ボタンの水平方向の配置位置*/
+  width:10vw; /*ボタンの幅*/
+  height:20vh; /*ボタンの高さ*/
+  background:grey; /*ボタンの色*/
+  border:none; /*ボタンの枠色*/
+  border-radius:0px; /*ボタンの角を丸める*/
   & svg{
-    color:black;
-    width:16px;
+    color:black; /*アイコンの色*/
+    width:16px;  /*アイコンの大きさ*/
   }
 }
 `
@@ -63,18 +63,18 @@ export const cssStyle= [
 		id: 3,
 		className   : 'rightReverse',
 		defaultStyle: 
-`#rightReverse{
+`#rightReverse{ /*右車輪後進*/
   position:absolute;
-  top:0%;
-  left:30%;
-  width:60px;
-  height:60px;
-  background:grey;
-  border:none;
-  border-radius:0px;
+  top:0%; /*ボタンの垂直方向の配置位置*/
+  left:30%; /*ボタンの水平方向の配置位置*/
+  width:10vw; /*ボタンの幅*/
+  height:20vh; /*ボタンの高さ*/
+  background:grey; /*ボタンの色*/
+  border:none; /*ボタンの枠色*/
+  border-radius:0px; /*ボタンの角を丸める*/
   & svg{
-    color:black;
-    width:16px;
+    color:black; /*アイコンの色*/
+    width:16px;  /*アイコンの大きさ*/
   }
 }
 `
@@ -83,18 +83,18 @@ export const cssStyle= [
 		id: 4,
 		className   : 'speedBoost',
 		defaultStyle: 
-`#speedBoost{
+`#speedBoost{ /*スピードアップ*/
   position:absolute;
-  top:0%;
-  left:40%;
-  width:60px;
-  height:60px;
-  background:grey;
-  border:none;
-  border-radius:0px;
+  top:0%; /*ボタンの垂直方向の配置位置*/
+  left:40%; /*ボタンの水平方向の配置位置*/
+  width:10vw; /*ボタンの幅*/
+  height:20vh; /*ボタンの高さ*/
+  background:grey; /*ボタンの色*/
+  border:none; /*ボタンの枠色*/
+  border-radius:0px; /*ボタンの角を丸める*/
   & svg{
-    color:black;
-    width:16px;
+    color:black; /*アイコンの色*/
+    width:16px;  /*アイコンの大きさ*/
   }
 }
 `
@@ -103,18 +103,18 @@ export const cssStyle= [
 		id: 5,
 		className   : 'leftTurn',
 		defaultStyle: 
-`#leftTurn{
+`#leftTurn{ /*左旋回*/
   position:absolute;
-  top:0%;
-  left:50%;
-  width:60px;
-  height:60px;
-  background:grey;
-  border:none;
-  border-radius:0px;
+  top:0%; /*ボタンの垂直方向の配置位置*/
+  left:50%; /*ボタンの水平方向の配置位置*/
+  width:10vw; /*ボタンの幅*/
+  height:20vh; /*ボタンの高さ*/
+  background:grey; /*ボタンの色*/
+  border:none; /*ボタンの枠色*/
+  border-radius:0px; /*ボタンの角を丸める*/
   & svg{
-    color:black;
-    width:16px;
+    color:black; /*アイコンの色*/
+    width:16px;  /*アイコンの大きさ*/
   }
 }
 `
@@ -123,18 +123,18 @@ export const cssStyle= [
 		id: 6,
 		className   : 'rightTurn',
 		defaultStyle: 
-`#rightTurn{
+`#rightTurn{ /*右旋回*/
   position:absolute;
-  top:0%;
-  left:60%;
-  width:60px;
-  height:60px;
-  background:grey;
-  border:none;
-  border-radius:0px;
+  top:0%; /*ボタンの垂直方向の配置位置*/
+  left:60%; /*ボタンの水平方向の配置位置*/
+  width:10vw; /*ボタンの幅*/
+  height:20vh; /*ボタンの高さ*/
+  background:grey; /*ボタンの色*/
+  border:none; /*ボタンの枠色*/
+  border-radius:0px; /*ボタンの角を丸める*/
   & svg{
-    color:black;
-    width:16px;
+    color:black; /*アイコンの色*/
+    width:16px;  /*アイコンの大きさ*/
   }
 }
 `
