@@ -12,7 +12,7 @@ const button = [
 ];
 let buttonElements = [];
 for (let i = 0; i < button.length; i++) {
-  buttonElements.push(document.getElementById(button[i] + "Button"));
+  buttonElements.push(document.getElementById(button[i]));
 }
 for (let i = 0; i < button.length; i++) {
   if (buttonElements[i] !== null) {
