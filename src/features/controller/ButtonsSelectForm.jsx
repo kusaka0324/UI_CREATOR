@@ -1,9 +1,10 @@
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import React from "react";
 import styled, { keyframes } from 'styled-components';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 
+import { SelectBox } from './SelectBox';
 import { IncludeButtonsIdState, SelectedButtonsState } from "@/recoil/atoms";
 import { AddedClass, AddedTags, SelectedItemSelector } from "@/recoil/selector";
-import { SelectBox } from './SelectBox';
 
 const ListItem = ({ index }) => {
   const setIncludeHtml= useSetRecoilState(AddedTags);
@@ -48,7 +49,7 @@ export const ButtonsSelectForm = () => {
     <FormContainer>
       <FormWrapper>
         <FormContent>
-          <SectionLabel>コントローラー選択</SectionLabel>
+          <SectionLabel>コントローラ選択</SectionLabel>
           <SelectBox />
         </FormContent>
         <FormContent>
