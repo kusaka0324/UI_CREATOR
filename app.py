@@ -16,7 +16,7 @@ def Controller():
         with open("templates/template.html", "rb") as file:
             html = file.read()
         soup = BeautifulSoup(html, "html.parser")
-        soup.title = "Controller" + str(data["controller"])
+        soup.title.string = "Controller" + str(data["controller"])
         htmlBody = ""
         button = ["leftForward", "leftReverse", "rightForward",
                   "rightReverse", "speedBoost", "rightTurn", "leftTurn"]
@@ -32,6 +32,7 @@ def Controller():
             button_element.append(BeautifulSoup(
                 svg_content, "html.parser").svg)
             htmlBody += str(button_element)
+        htmlBody += str(soup.new_tag("script", src="static/controller.js"))
 
         soup.body.append(BeautifulSoup(htmlBody))
         with open("templates/controller" + str(data["controller"]) + ".html", "w") as file:
