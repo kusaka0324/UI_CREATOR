@@ -36,9 +36,11 @@ export const CodeEditor = () => {
 };
 
 const EditorLayout= styled.div`
-  margin-left  : 0.75rem;
-  height       : 100%;
-  width        : calc(100vh - 8rem);
+  margin-left   : 0.75rem;
+  display       : flex;
+  flex-direction: column;
+  height        : 100%;
+  width         : calc(100% - 8rem);
 `;
 
 const EditorWrapper= styled.section`
