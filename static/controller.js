@@ -16,7 +16,6 @@ for (let i = 0; i < button.length; i++) {
 }
 
 for (let i = 0; i < button.length; i++) {
-  console.log(i)
   if (buttonElements[i] !== null) {
     if (i < 5) {
       buttonElements[i].addEventListener("touchstart", function () {
