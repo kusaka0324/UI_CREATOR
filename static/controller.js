@@ -14,6 +14,8 @@ let buttonElements = [];
 for (let i = 0; i < button.length; i++) {
   buttonElements.push(document.getElementById(button[i]));
 }
+console.log(buttonElements)
+console.log(controller)
 for (let i = 0; i < button.length; i++) {
   console.log(i)
   if (buttonElements[i] !== null) {
