@@ -10,7 +10,7 @@ export const SelectBox = () => {
     setSelectedId(e.target.value);
   };
   return (
-    <SelectBoxStyle onChange={handleOptionChange}>
+    <SelectBoxStyle onChange={handleOptionChange} value={selectedId}>
 			<option value='0' >controller 1</option>
 			<option value='1' >controller 2</option>
 			<option value='2' >controller 3</option>
