@@ -78,7 +78,7 @@ const FormContainer= styled.div`
 const FormWrapper= styled.section`
   display       : flex;
   flex-direction: column;
-  gap           : 50px;
+  gap           : 10%;
 `;
 
 const CheckBox= styled.input.attrs({ type: 'checkbox' })`
