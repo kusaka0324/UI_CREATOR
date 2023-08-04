@@ -1,8 +1,8 @@
 import React  from 'react';
 import styled from 'styled-components';
 
-import { CodeEditor }                from '../codeEditor'
-import { Screen }                    from '../screen'
+import { CodeEditor }      from '../codeEditor'
+import { Screen }          from '../screen'
 import { Sidebar, Topber } from '@/components';
 
 export const CodeEditPage = () => {
@@ -35,7 +35,7 @@ const ContentLayout= styled.main`
   grid-column: 1;
   width      : 100%;
   height     : 100%;
-  background : #ECECEC;
+  background : #f3f3f3;
   padding    : 1rem;
 `;
 
