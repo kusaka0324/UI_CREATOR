@@ -47,6 +47,7 @@ const EditorWrapper= styled.section`
   position     : relative;
   height       : calc(100% - 5.5rem);
   width        : 100%;
+  max-width    : 36rem;
   background   : #1c1c1c;
   border-radius: 20px;
 `;
