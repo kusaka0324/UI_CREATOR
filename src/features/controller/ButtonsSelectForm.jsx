@@ -68,7 +68,7 @@ export const ButtonsSelectForm = () => {
 };
 
 const FormContainer= styled.div`
-  padding-top    : 1rem;
+  position       : relative;
   height         : 100%;
   width          : 100%;
   display        : flex;
@@ -79,6 +79,34 @@ const FormWrapper= styled.section`
   display       : flex;
   flex-direction: column;
   gap           : 10%;
+  position      : absolute;
+  top           : 50%;
+  left          : 50%;
+  padding       : 40px 20px 0px 20px;
+  height        : 30rem;
+  background    : #fefefe;
+  border-radius : 15px;
+  box-shadow    : 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  transform     : translate(-50%, -50%);
+`;
+
+const FormContent= styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+`;
+
+const SectionLabel= styled.h3`
+  width        : 100%;
+  font-size    : 1rem;
+  color        : #63656b;
+  border-bottom: 3px solid #efeff3;
+`;
+
+const InputList= styled.ul`
+  display              : grid;
+  grid-template-columns: 180px 180px 180px;
+  gap                  :10px;
 `;
 
 const CheckBox= styled.input.attrs({ type: 'checkbox' })`
@@ -116,12 +144,12 @@ const CheckBoxLabel= styled.label`
   font-size  : 1.15rem;
   font-weight: 600;
   &:before {
-    width:16px;
-    height:16px;
-    left:5px;
-    border:1px solid #ccc;
+    width        : 16px;
+    height       : 16px;
+    left         : 5px;
+    border       : 1px solid #ccc;
     border-radius: 5px;
-    margin-top:-8px;
+    margin-top   : -8px;
   }
   &:after,
   &:before {
@@ -130,47 +158,30 @@ const CheckBoxLabel= styled.label`
     top     : 50%;
   }
   &::after {
-    position: absolute;
-    width: 5px;
-    height: 9px;
-    top: 50%;
-    left: 10px;
-    border-right: 2px solid #fefefe;
+    position     : absolute;
+    width        : 5px;
+    height       : 9px;
+    top          : 50%;
+    left         : 10px;
+    border-right : 2px solid #fefefe;
     border-bottom: 3px solid #fefefe;
-    content: '';
-    margin-top: -7px;
-    opacity: 0;
-    transform: rotate(45deg);
+    content      : '';
+    margin-top   : -7px;
+    opacity      : 0;
+    transform    : rotate(45deg);
   }
   ${CheckBox}:checked+&::before {
-    height    : 20px;
-    width     : 20px;
-    left      : 2px;
-    border    : 2px solid #a17fff;
+    height       : 20px;
+    width        : 20px;
+    left         : 2px;
+    border       : 2px solid #a17fff;
     border-radius: 5px;
-    margin-top: -11px;
-    transform : rotate(45deg);
-    background: #6129ff;
-    animation : ${checkRotate} 0.5s;
+    margin-top   : -11px;
+    transform    : rotate(45deg);
+    background   : #6129ff;
+    animation    : ${checkRotate} 0.5s;
   }
   ${CheckBox}:checked+&::after {
     opacity: 1;
   }
-`;
-
-const FormContent= styled.div`
-  display: flex;
-  flex-direction: column;
-  row-gap: 15px;
-`;
-
-const SectionLabel= styled.h3`
-  font-size: 1rem;
-  color: #a3a3a3;
-`;
-
-const InputList= styled.ul`
-  display: grid;
-  grid-template-columns: 180px 180px 180px;
-  gap:10px;
 `;
