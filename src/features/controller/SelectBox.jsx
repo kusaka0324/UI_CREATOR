@@ -28,6 +28,7 @@ const SelectBoxStyle= styled.select`
 	font-size    : 1.25rem;
 	border-radius: 10px;
 	border       : 1px solid #bebebe;
+	cursor       : pointer;
 
 	&:focus {
 		outline: 2px solid #6129FF;

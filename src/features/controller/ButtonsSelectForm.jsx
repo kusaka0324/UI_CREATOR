@@ -143,6 +143,7 @@ const CheckBoxLabel= styled.label`
   margin-left: 1rem;
   font-size  : 1.15rem;
   font-weight: 600;
+  cursor     : pointer;
   &:before {
     width        : 16px;
     height       : 16px;
