@@ -27,7 +27,7 @@ const HeaderTitle = styled.div`
   position   : absolute;
   top        : 50%;   
   left       : 2.75rem;
-  line-height: 100px; 
+  line-height: 80px; 
   transform  : translateY(-50%);
 
   > img {    
