@@ -29,8 +29,8 @@ const ScreenStyle = styled.div`
       `
     : css`
         padding: 10px 30px 10px 30px;
-        height : 45vh;
-        width  : 90vh;       
+        height : 40vh;
+        width  : 80vh;       
     `
     };
 `;
