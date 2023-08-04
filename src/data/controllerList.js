@@ -12,7 +12,7 @@ export const controllerList= [
   width:10vw; /*ボタンの幅*/
   height:20vh; /*ボタンの高さ*/
   background:grey; /*ボタンの色*/
-  border:none; /*ボタンの枠色*/
+  border:0px solid black; /*ボタンの枠色*/
   border-radius:0px; /*ボタンの角を丸める*/
 }
 #leftForward svg{
@@ -34,7 +34,7 @@ export const controllerList= [
   width:10vw; /*ボタンの幅*/
   height:20vh; /*ボタンの高さ*/
   background:grey; /*ボタンの色*/
-  border:none; /*ボタンの枠色*/
+  border:0px solid black; /*ボタンの枠色*/
   border-radius:0px; /*ボタンの角を丸める*/
 }
 #leftReverse svg{
@@ -56,7 +56,7 @@ export const controllerList= [
   width:10vw; /*ボタンの幅*/
   height:20vh; /*ボタンの高さ*/
   background:grey; /*ボタンの色*/
-  border:none; /*ボタンの枠色*/
+  border:0px solid black; /*ボタンの枠色*/
   border-radius:0px; /*ボタンの角を丸める*/
 }
 #rightForward svg{
@@ -78,7 +78,7 @@ export const controllerList= [
   width:10vw; /*ボタンの幅*/
   height:20vh; /*ボタンの高さ*/
   background:grey; /*ボタンの色*/
-  border:none; /*ボタンの枠色*/
+  border:0px solid black; /*ボタンの枠色*/
   border-radius:0px; /*ボタンの角を丸める*/
 }
 #rightReverse svg{
@@ -100,7 +100,7 @@ export const controllerList= [
   width:10vw; /*ボタンの幅*/
   height:20vh; /*ボタンの高さ*/
   background:grey; /*ボタンの色*/
-  border:none; /*ボタンの枠色*/
+  border:0px solid black; /*ボタンの枠色*/
   border-radius:0px; /*ボタンの角を丸める*/
 }
 #speedBoost svg{
@@ -122,7 +122,7 @@ export const controllerList= [
   width:10vw; /*ボタンの幅*/
   height:20vh; /*ボタンの高さ*/
   background:grey; /*ボタンの色*/
-  border:none; /*ボタンの枠色*/
+  border:0px solid black; /*ボタンの枠色*/
   border-radius:0px; /*ボタンの角を丸める*/
 }
 #rightTurn svg{
@@ -144,7 +144,7 @@ export const controllerList= [
   width:10vw; /*ボタンの幅*/
   height:20vh; /*ボタンの高さ*/
   background:grey; /*ボタンの色*/
-  border:none; /*ボタンの枠色*/
+  border:0px solid black; /*ボタンの枠色*/
   border-radius:0px; /*ボタンの角を丸める*/
 }
 #leftTurn svg{
