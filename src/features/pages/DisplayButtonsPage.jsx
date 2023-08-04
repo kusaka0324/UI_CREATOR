@@ -8,16 +8,18 @@ import { ButtonsSelectForm } from '@/features/controller/ButtonsSelectForm';
 export const DisplayButtonsPage = () => {
   return (
     <MainLayout>  
-      <Topber/>    
-      <PreviewLayout >
-        <Screen />
-      </PreviewLayout>
-      <ContentLayout>
+      <Topber/>      
+      <PreviewLayout>
         <Sidebar/>
-        <SelectAreaLayout>
-          <Header title={'Buttons'} subTitle={'操作ボタンを配置しよう'} />
-          <ButtonsSelectForm />
-        </SelectAreaLayout>
+        <ScreenStyleDiv>
+          <Header title={'DisplayButtons'} subTitle={'操作ボタンを配置しよう'} />
+          <ScreenPosition>
+            <Screen />
+          </ScreenPosition>
+        </ScreenStyleDiv>
+      </PreviewLayout>    
+      <ContentLayout >
+        <ButtonsSelectForm />
       </ContentLayout>
     </MainLayout>
   )
@@ -32,17 +34,17 @@ const MainLayout= styled.div`
   grid-template-columns: 1fr 1fr;
 `;
 
-const ContentLayout= styled.main`
+const PreviewLayout= styled.main`
   display    : flex;
   grid-row   : 2;
   grid-column: 1;
   width      : 100%;
   height     : 100%;
-  background : #ECECEC;
+  background : #f3f3f3;
   padding    : 1rem;
 `;
 
-const PreviewLayout= styled.div`
+const ContentLayout= styled.div`
   height         : 100%;
   width          : 100%;
   display        : flex;
@@ -50,13 +52,21 @@ const PreviewLayout= styled.div`
   justify-content: center;
   grid-row       : 2;
   grid-column    : 2;
-  background     : #fefefe;
+  background     : #f3f3f3;
 `;
 
-const SelectAreaLayout= styled.div`
-  margin-left   : 0.75rem;
-  display       : flex;
-  flex-direction: column;
-  height        : 100%;
-  width         : calc(100% - 8rem);
+const ScreenStyleDiv= styled.div`
+  margin-left    : 0.75rem;
+  position       : relative;
+  display        : flex;
+  flex-direction : column;
+  height         : calc(100% - 8rem);
+  width          : 100%;
+`
+const ScreenPosition= styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width : 100%;
 `;
