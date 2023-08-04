@@ -21,6 +21,7 @@ export const SelectBox = () => {
 }
 
 const SelectBoxStyle= styled.select`
+	margin       : 20px;
 	height       : 40px;
 	width        : 250px;
 	text-align   : center;
